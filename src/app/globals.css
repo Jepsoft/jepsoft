@@ -2,86 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* //animations */
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+body{
+  background-color: #030712;
+}
+.avbar-default {
+  transition: max-height 0.3s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
 }
 
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.navbar-default.block {
+  max-height: 500px; 
 }
 
-@keyframes slideFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
+@keyframes moveStars {
+  0% {
+    transform: translateY(-100vh) translateX(0%);
   }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideFromTop {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideFromDown {
-  from {
-    opacity: 0;
-    transform: translateY(0px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(-50);
-  }
-}
-
-@keyframes moveUpDown {
-
-  0%,
   100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-15px);
+    transform: translateY(100vh) translateX(0%);
   }
 }
+
+.animate-star {
+  animation: moveStars 60s linear infinite;
+}
+
+.infinity-icon {
+  width: 100px;
+  height: 50px;
+  position: relative;
+}
+
+.infinity-icon .left,
+.infinity-icon .right {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  border: 10px solid;
+}
+
+.infinity-icon .left {
+  left: 0;
+  border-color: #2B7BC1;
+  animation: colorChangeLeft 3s linear infinite;
+}
+
+.infinity-icon .right {
+  right: 0;
+  border-color: #103A5D;
+  animation: colorChangeRight 3s linear infinite;
+}
+
+@keyframes colorChangeLeft {
+  0%, 100% {
+    border-color: #2B7BC1;
+  }
+  50% {
+    border-color: #103A5D;
+  }
+}
+
+@keyframes colorChangeRight {
+  0%, 100% {
+    border-color: #103A5D;
+  }
+  50% {
+    border-color: #2B7BC1;
+  }
+}
+
