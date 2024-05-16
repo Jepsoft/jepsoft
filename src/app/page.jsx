@@ -77,12 +77,12 @@ export default function Home() {
     });
   }
   return (
-    <div>
+    <div className=''>
       <nav className={`absolute left-0 right-0 p-5 z-40 ${isMenuOpen ? '' : ''}`}>
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <Image src={Jepsoft} className="w-20 " alt="Logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Jepsoft</span>
+          <a href="" className="flex items-center space-x-3 rtl:space-x-reverse">
+            <Image src={Jepsoft} className="w-20 ml-5" alt="Logo" />
+            <span className="self-center text-2xl invisible font-semibold whitespace-nowrap text-white">Jepsoft</span>
           </a>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700  transition duration-300 ease-in-out transform hover:scale-110" aria-controls="navbar-default" aria-expanded={isMenuOpen ? "true" : "false"}>
             <span className="sr-only">Open main menu</span>
@@ -96,20 +96,20 @@ export default function Home() {
           <div className={`w-full md:block md:w-auto   ${isMenuOpen ? 'block' : 'hidden'} `} id="navbar-default">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
               <li>
-                <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+                <div className=" cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</div>
               </li>
               <li>
-                <a href="#" className="block py-2 px-3 text-white cursor-pointer rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handlescrolltoabout}>About</a>
+                <div className=" cursor-pointer block py-2 px-3 text-white  rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handlescrolltoabout}>About</div>
               </li>
               <li>
-                <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handleservicescroll}>Services</a>
+                <div className=" cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handleservicescroll}>Services</div>
               </li>
               <li>
-                <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Portfolio
-                </a>
+                <div className=" cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Portfolio
+                </div>
               </li>
               <li>
-                <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handlescrolltocontact}>Contact</a>
+                <div className=" cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handlescrolltocontact}>Contact</div>
               </li>
             </ul>
           </div>
@@ -126,7 +126,7 @@ export default function Home() {
           <nav className="absolute left-0 right-0 p-5 z-40">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
               <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-                <Image src={Jepsoft} className="w-20 " alt="Logo" />
+                <Image src={Jepsoft} className="w-20 invisible" alt="Logo" />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Jepsoft</span>
               </a>
               <button onClick={() => setIsMenuOpen(!isMenuOpen)} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700  transition duration-300 ease-in-out transform hover:scale-110" aria-controls="navbar-default" aria-expanded={isMenuOpen ? "true" : "false"}>
@@ -141,20 +141,20 @@ export default function Home() {
               <div className={`w-full md:block md:w-auto   ${isMenuOpen ? 'block' : 'hidden'} `} id="navbar-default">
                 <ul className="font-medium flex flex-col p-4 md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                   <li>
-                    <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+                    <div className=" cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</div>
                   </li>
                   <li>
-                    <a href="#" className="block py-2 px-3 text-white cursor-pointer rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handlescrolltoabout}>About</a>
+                    <div className=" cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handlescrolltoabout}>About</div>
                   </li>
                   <li>
-                    <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handleservicescroll}>Services</a>
+                    <div className=" cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handleservicescroll}>Services</div>
                   </li>
                   <li>
-                    <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Portfolio
-                    </a>
+                    <div className=" cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Portfolio
+                    </div>
                   </li>
                   <li>
-                    <a href="#" className="block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handlescrolltocontact}>Contact</a>
+                    <div className=" cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" onClick={handlescrolltocontact}>Contact</div>
                   </li>
                 </ul>
               </div>
@@ -316,40 +316,6 @@ export default function Home() {
                               <h3 className='text-white mt-5 w-36'>Social media management</h3>
                             </div>
                         </div>
-                          
-                      {/* <div className="flex flex-wrap justify-center">
-                        <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 mt-5 mb-5">
-                          <div className="flex flex-col items-center justify-center text-center">
-                            <Image src={soft_dev} alt="Jepsoft" className="sm:w-26 md:w-28" />
-                            <h4 className="w-36 text-white mt-5">Custom Software Development</h4>
-                          </div>
-                        </div>
-                        <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 mt-5 mb-5">
-                          <div className="flex flex-col items-center justify-center text-center">
-                            <Image src={web_dev} alt="Jepsoft" className="sm:w-26 md:w-28" />
-                            <h4 className="w-36 text-white mt-5">Web Development</h4>
-                          </div>
-                        </div>
-                        <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 mt-5 mb-5">
-                          <div className="flex flex-col items-center justify-center text-center">
-                            <Image src={mobile_dev} alt="Jepsoft" className="sm:w-26 md:w-28" />
-                            <h4 className="w-36 text-white mt-5">Mobile Application Development</h4>
-                          </div>
-                        </div>
-                        <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 mt-5 mb-5">
-                          <div className="flex flex-col items-center justify-center text-center">
-                            <Image src={maintain} alt="Jepsoft" className="sm:w-26 md:w-28" />
-                            <h4 className="w-36 text-white mt-5">Maintenance and Support</h4>
-                          </div>
-                        </div>
-                        <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 mt-5 mb-5">
-                          <div className="flex flex-col items-center justify-center text-center">
-                            <Image src={social_manage} alt="Jepsoft" className="sm:w-26 md:w-28" />
-                            <h4 className="w-36 text-white mt-5">Social media management</h4>
-                          </div>
-                        </div>
-                      </div> */}
-
                     </div>
                   </div>
                 </div>
@@ -517,8 +483,8 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
-                <div className="sm:flex sm:items-center sm:justify-between">
+                <hr className=" left-0 right-0 mt-3 border-gray-200 w-full absolute" />
+                <div className="sm:flex sm:items-center sm:justify-between mt-5">
                   <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" className="hover:underline">Jepsoft</a>. All Rights Reserved.
                   </span>
                   <div className="flex mt-4 sm:justify-center sm:mt-0">
