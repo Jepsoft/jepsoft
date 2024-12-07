@@ -1,532 +1,304 @@
 'use client'
-import axios from 'axios';
-import 'aos/dist/aos.css';
-import AOS from 'aos';
-import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Loader from "./loader.gif";
+import BG from './images/image copy.png';
+import Mobile from "./icons/mobile_dev.svg";
+import SoftDev from "./icons/soft_dev.svg"
+import Maintain from "./icons/maintain.svg";
+import webdev from "./icons/web_dev.svg"
 import Image from 'next/image';
-import Jepsoft from './icons/Jepsoft.svg';
-import Italy from './images/italy.svg';
-import SL from './images/sl.svg';
-import Dotnet from './icons/dotnet.svg';
-import cShape from './icons/csharp.svg';
-import java from './icons/java.svg';
-import larval from './icons/laravel.svg';
-import php from './icons/php.svg';
-import sql from './icons/sql.svg';
-import react from './icons/react.svg';
-import python from './icons/python.svg';
-import shift from './icons/shift.svg';
-import node from './icons/node.svg';
-import soft_dev from './icons/soft_dev.svg';
-import web_dev from './icons/web_dev.svg';
-import social_manage from './icons/social_manage.svg';
-import maintain from './icons/maintain.svg';
-import mobile_dev from './icons/mobile_dev.svg';
-import { enqueueSnackbar } from 'notistack';
+import Logo from "./images/logo.png";
+import NFC from "./icons/nfc.svg";
+import Node from "./icons/node.svg";
+import Hat from "./images/santa-hat.png";
+import "./style.scss";
+import Education from './images/mortarboard.png';
+import CSharp from "./icons/csharp.svg";
+import ReactImg from "./icons/react.svg";
+import Php from "./icons/php.svg";
+import Python from "./icons/python.svg";
+import Happy from "./icons/happy.png";
+import Shift from "./icons/shift.svg";
+import SQl from "./icons/sql.svg";
+import Dotnet from "./icons/dotnet.svg";
+import Laraval from "./icons/laravel.svg";
+import Java from "./icons/java.svg";
+import { useEffect, useState } from 'react';
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [showAboutUs, setShowAboutUs] = useState(false);
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
-
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 5000);
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
 
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handlescrolltocontact = () => {
-    setShowAboutUs(!showAboutUs);
-    setIsMenuOpen(false);
-    window.scrollTo({
-      top: document.getElementById('contactSection').offsetTop,
-      behavior: 'smooth'
-    });
-  }
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post('https://jepsoft.com/backend/public/api/send-email', {
-        email,
-        subject,
-        message,
-      });
-      enqueueSnackbar("Request Sent", { variant: 'success' });
-      window.location.href = 'https://jepsoft.com';
-    } catch (error) {
-      enqueueSnackbar("Check Your Email or Connection", { variant: 'error' });
-    }
-  };
-  const handlescrolltoabout = () => {
-    setShowAboutUs(!showAboutUs);
-    setIsMenuOpen(false);
-    window.scrollTo({
-      top: document.getElementById('aboutUsSection').offsetTop,
-      behavior: 'smooth'
-    });
-  }
-  const handleservicescroll = () => {
-    setShowAboutUs(!showAboutUs);
-    setIsMenuOpen(false);
-    window.scrollTo({
-      top: document.getElementById('servicesSection').offsetTop,
-      behavior: 'smooth'
-    });
-  }
-  useEffect(() => {
-    AOS.init({
-      duration: 500,
-      easing: 'ease-in-out',
-      once: true,
-    });
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
   return (
-    <div className=''>
-      <div className=" w-full h-full  absolute bottom-0 left-0 right-0 overflow-hidden">
-        <div class="ocean w-svh h-svh">
-          <div class="wave"></div>
-          <div class="wave wave2"></div>
+    <div>
+      {isLoading && (
+        <div className='flex justify-center backdrop-blur-sm items-center fixed left-0 right-0 top-0 bottom-0 z-50'>
+          <Image unoptimized src={Loader} alt='loader' className='object-contain' />
+        </div>
+      )}
+      <div className=' overflow-x-hidden'>
+        <div className='bot animate-updown fixed right-2 sm:right-5 sm:bottom-5 md:right-10 md:bottom-10 lg:-right-10 lg:bottom-10 xl:right-12 xl:bottom-12 bottom-2 z-20'>
+          <div className="cloud hidden sm:block">
+            <div className="text ">Chat with me</div>
+          </div>
+          <Image src={Happy} alt='chatbot' className={`${isSticky
+            ? "bg-gray-300 rounded-full p-1 w-16 h-16 ai-gradient-bg duration-500 ease-out"
+            : "w-14 h-14 duration-500 ease-out"
+            } `} />
+        </div>
+        <Image src={BG} alt='bg' className='w-screen h-screen left-0 right-0 top-0 fixed bottom-0 object-cover -z-50' />
+        <div className='-z-20 fixed w-screen h-screen'>
+          <div className="snow foreground"></div>
+          <div className="snow foreground layered"></div>
+          <div className="snow middleground"></div>
+          <div className="snow middleground layered"></div>
+          <div className="snow background"></div>
+          <div className="snow background layered"></div>
+        </div>
+        <nav
+          className={`${isSticky
+            ? "bg-opacity-80 pb-1 bg-black shadow-md backdrop-blur-sm transition-all duration-500 pt-0"
+            : "bg-opacity-30 duration-500 pt-10"
+            } pt-1  z-20 fixed top-0 w-screen`}
+        >
+          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+
+            <Image src={Hat} alt="hat" className="w-8 h-8 mt-[-15px] ml-[78px] z-10" />
+
+            <span className="absolute text-2xl  font-semibold whitespace-nowrap text-white">
+              Jepsoft
+            </span>
+            <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+              <button
+                type="button"
+                className="flex text-sm bg-white rounded-full md:me-0 focus:ring-4"
+                id="user-menu-button"
+                aria-expanded="false"
+                data-dropdown-toggle="user-dropdown"
+                data-dropdown-placement="bottom"
+              >
+                <Link href={"/education"} className=' cursor-pointer'>
+
+                  <Image className="w-10 h-10 rounded-full" src={Education} alt="user photo" />
+                </Link>
+              </button>
+            </div>
+            <div
+              className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+              id="navbar-user"
+            >
+              <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 text-white">
+                {["Home", "About", "Services", "Products", "Contact"].map((item, index) => (
+                  <li key={index}>
+                    <a
+                      href="#"
+                      className="block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div className='z-20 '>
+          <div className='flex justify-center items-center  absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'>
+            <div>
+              <div>
+                <h1 className=' text-center text-white text-[50px] md:text-[80px] lg:text-[100px] xl:text-[120px]'>Jepsoft</h1>
+              </div>
+              <h1 className=' text-[20px] ai-gradient-texx w-screen sm:text-[25px] md:text-[30px] lg:text-[33px]'>Transforming industries with cutting-edge software solutions</h1>
+            </div>
+          </div>
+        </div>
+        <div className='h-[100vh]'></div>
+        <hr className="h-1 bg-gradient-to-r from-blue-500 via-pink-500 to-purple-500 border-none rounded-full" />
+        <div className='z-20 bg-white w-screen  backdrop-blur-sm md:px-14 px-5 lg-px-14 xl-px-14'>
+          <h1 className='text-center md:text-left lg:text-left xl:text-left md:text-[30px] lg:text-[35px] xl:text-[35px] text-[25px] font-semibold mb-10 pt-10 text-gray-700'>
+            Discover the Power of Jepsoft
+          </h1>
+          <p className='text-justify ml-4 mr-4 text-gray-700 text-[15px] md:text-[17px]'>Jepsoft is a forward-thinking software company committed to empowering businesses through innovative and tailored solutions. Our expertise spans custom software development, NFC card creation, ID card production, and a wide range of advanced digital tools. By streamlining workflows, enhancing data security, and elevating customer experiences, we help businesses thrive in an ever-evolving market. With a team of passionate developers and industry experts, we deliver user-friendly, efficient solutions designed to boost productivity, reduce operational costs, and support informed decision-making. At Jepsoft, we are dedicated to turning your vision into reality with technology that works for you.</p>
+          <h1 className='text-center md:text-left lg:text-left xl:text-left md:text-[30px] lg:text-[35px] xl:text-[35px] text-[25px] font-semibold mb-10 pt-10 text-gray-700'>
+            Expert With
+          </h1>
+          <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6'>
+            <div className='flex flex-col items-center'>
+              <Image
+                src={ReactImg}
+                alt='React'
+                className='w-20 h-20 m-4 hover:scale-125 duration-300'
+              />
+              <h1 className='text-center mt-2 text-gray-600 md:font-bold'>React</h1>
+            </div>
+            <div className='flex flex-col items-center'>
+              <Image
+                src={Php}
+                alt='PHP'
+                className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24  m-4 hover:scale-125 duration-300'
+              />
+              <h1 className='text-center mt-2 text-gray-600 md:font-bold'>PHP</h1>
+            </div>
+            <div className='flex flex-col items-center'>
+              <Image
+                src={Python}
+                alt='Python'
+                className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+              />
+              <h1 className='text-center mt-2 text-gray-600 md:font-bold'>Python</h1>
+            </div>
+            <div className='flex flex-col items-center'>
+              <Image
+                src={SQl}
+                alt='SQL'
+                className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+              />
+              <h1 className='text-center mt-2 text-gray-600 md:font-bold'>SQL</h1>
+            </div>
+            <div className='flex flex-col items-center '>
+              <Image
+                src={Shift}
+                alt='Shift'
+                className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+              />
+              <h1 className='text-center mt-2 text-gray-600 md:font-bold'>Shift</h1>
+            </div>
+            <div className='flex flex-col items-center'>
+              <Image
+                src={CSharp}
+                alt='C#'
+                className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+              />
+              <h1 className='text-center mt-2 text-gray-600 md:font-bold'>C#</h1>
+            </div>
+            <div className='flex flex-col items-center'>
+              <Image
+                src={Java}
+                alt='Java'
+                className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+              />
+              <h1 className='text-center mt-2 text-gray-600 md:font-bold'>Java</h1>
+            </div>
+            <div className='flex flex-col items-center'>
+              <Image
+                src={Laraval}
+                alt='Laravel'
+                className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+              />
+              <h1 className='text-center mt-2 text-gray-600 md:font-bold'>Laravel</h1>
+            </div>
+            <div className='flex flex-col items-center'>
+              <Image
+                src={Dotnet}
+                alt='.Net'
+                className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+              />
+              <h1 className='text-center mt-2 text-gray-600 md:font-bold'>.Net</h1>
+            </div>
+            <div className='flex flex-col items-center'>
+              <Image
+                src={Node}
+                alt='Node'
+                className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+              />
+              <h1 className='text-center mt-2 text-gray-600 md:font-bold'>Node</h1>
+            </div>
+          </div>
+          <br /><br />
+          <div className=' bg-white'>
+            <h1 className='ai-gradient-texttv text-center animate-updown text-sm sm:text-[19px] md:text-[25px]'>Have a great business idea? Let us help bring your vision to life. Contact us to turn ideas into reality</h1>
+          </div>
+          <div className=' bg-white '>
+            <h1 className='text-center md:text-left lg:text-left xl:text-left md:text-[30px] lg:text-[35px] xl:text-[35px] text-[25px] font-semibold mb-10 pt-10 text-gray-700'>Services</h1>
+            <p className='text-justify ml-4 mr-4 text-gray-700 text-[15px] md:text-[17px]'>At Jepsoft, we take immense pride in delivering exceptional software solutions that are meticulously crafted to meet the unique needs of our clients. Our team of highly skilled professionals brings expertise across a wide range of services, ensuring we can comprehensively address various aspects of your software development journey. Whether you're looking for custom software design, seamless integration, or robust support, we are committed to providing innovative solutions that enhance your business operations. Our goal is to work closely with you, understanding your objectives and transforming your ideas into scalable, high-performance software products that deliver long-term success.</p>
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-20'>
+              <div className='flex flex-col items-center'>
+                <Image
+                  src={SoftDev}
+                  alt='React'
+                  className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+                />
+                <h1 className='text-center mt-2 text-gray-600 md:font-bold w-[80%]' >Custom Software Development</h1>
+              </div>
+              <div className='flex flex-col items-center'>
+                <Image
+                  src={webdev}
+                  alt='PHP'
+                  className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+                />
+                <h1 className='text-center mt-2 text-gray-600 md:font-bold w-[80%]'>Custom Web Development</h1>
+              </div>
+              <div className='flex flex-col items-center'>
+                <Image
+                  src={Mobile}
+                  alt='Python'
+                  className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+                />
+                <h1 className='text-center mt-2 text-gray-600 md:font-bold'>Mobile Application Development</h1>
+              </div>
+              <div className='flex flex-col items-center'>
+                <Image
+                  src={Maintain}
+                  alt='SQL'
+                  className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+                />
+                <h1 className='text-center mt-2 text-gray-600 md:font-bold w-[80%]'>Maintenance and Support</h1>
+              </div>
+              <div className='flex flex-col items-center '>
+                <Image
+                  src={NFC}
+                  alt='Shift'
+                  className='w-20 h-20 md:w-24 md:h-24 lg:h-24 lg:w-24 xl:h-24 xl:w-24 m-4 hover:scale-125 duration-300'
+                />
+                <h1 className='text-center mt-2 text-gray-600 md:font-bold w-[70%]'>ID & NFC Card Creation</h1>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-      <nav className={`absolute left-0  right-0 z-40 ${isMenuOpen ? '' : ''}`}>
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <Image src={Jepsoft} className="w-20 ml-5" alt="Logo" />
-            <span className="self-center text-2xl invisible font-semibold whitespace-nowrap text-gray-600">Jepsoft</span>
-          </a>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 transition duration-300 ease-in-out transform hover:scale-110" aria-controls="navbar-default" aria-expanded={isMenuOpen ? "true" : "false"}>
-            <span className="sr-only">Open main menu</span>
-            <svg className={`w-5 h-5 ${isMenuOpen ? 'hidden' : 'block'}`} aria-hidden="true" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-            <svg className={`w-5 h-5 ${isMenuOpen ? 'block' : 'hidden'}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          <div className={`w-full md:block md:w-auto   ${isMenuOpen ? 'block' : 'hidden'} `} id="navbar-default">
-            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+      <footer className="bg-white  shadow  pt-24">
+        <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+          <div className="sm:flex sm:items-center sm:justify-between">
+            <a href="https://jepsoft.com/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+              <Image height={100} width={100} className='mr-[-35px] mt-[5px]' src={Logo} />
+
+              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Jepsoft</span>
+            </a>
+            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
               <li>
-                <div className=" cursor-pointer block py-2 px-3 text-gray-600 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-gray-600 md:dark:hover:bg-transparent">Home</div>
+                <a href="#" className="hover:underline me-4 md:me-6">About</a>
               </li>
               <li>
-                <div className=" cursor-pointer block py-2 px-3 text-gray-600  rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-gray-600 md:dark:hover:bg-transparent" onClick={handlescrolltoabout}>About</div>
+                <a href="#" className="hover:underline me-4 md:me-6">Privacy Policy</a>
               </li>
               <li>
-                <div className=" cursor-pointer block py-2 px-3 text-gray-600 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-gray-600 md:dark:hover:bg-transparent" onClick={handleservicescroll}>Services</div>
+                <a href="#" className="hover:underline me-4 md:me-6">Licensing</a>
               </li>
               <li>
-                <div className=" cursor-pointer block py-2 px-3 text-gray-600 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-gray-600 md:dark:hover:bg-transparent">Education
-                </div>
-              </li>
-              <li>
-                <div className=" cursor-pointer block py-2 px-3 text-gray-600 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-gray-600 md:dark:hover:bg-transparent" onClick={handlescrolltocontact}>Contact</div>
+                <a href="#" className="hover:underline">Contact</a>
               </li>
             </ul>
           </div>
+          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" className="hover:underline">Jepsoft™</a>. All Rights Reserved.</span>
         </div>
-      </nav>
-      <div className={`${isMenuOpen ? 'blur' : ''}`}>
-        <div className=' fixed top-0 right-0 bottom-0 left-0'>
-          <div id='stars'></div>
-          <div id='stars2'></div>
-          <div id='stars3'></div>
-        </div>
-
-        <div className=" h-svh">
-          <nav className="absolute left-0 right-0  z-40">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-              <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-                <Image src={Jepsoft} className="w-20 invisible" alt="Logo" />
-                <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-600">Jepsoft</span>
-              </a>
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 transition duration-300 ease-in-out transform hover:scale-110" aria-controls="navbar-default" aria-expanded={isMenuOpen ? "true" : "false"}>
-                <span className="sr-only">Open main menu</span>
-                <svg className={`w-5 h-5 ${isMenuOpen ? 'hidden' : 'block'}`} aria-hidden="true" fill="none" viewBox="0 0 17 14">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-                </svg>
-                <svg className={`w-5 h-5 ${isMenuOpen ? 'block' : 'hidden'}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              <div className={`w-full md:block md:w-auto   ${isMenuOpen ? 'block' : 'hidden'} `} id="navbar-default">
-                <ul className="font-medium flex flex-col p-4 md:p-0 mt-4  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-                  <li>
-                    <div className=" cursor-pointer block py-2 px-3 text-gray-600 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-gray-600 md:dark:hover:bg-transparent">Home</div>
-                  </li>
-                  <li>
-                    <div className=" cursor-pointer block py-2 px-3 text-gray-600 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-gray-600 md:dark:hover:bg-transparent" onClick={handlescrolltoabout}>About</div>
-                  </li>
-                  <li>
-                    <div className=" cursor-pointer block py-2 px-3 text-gray-600 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-gray-600 md:dark:hover:bg-transparent" onClick={handleservicescroll}>Services</div>
-                  </li>
-                  <li>
-                    <div className=" cursor-pointer block py-2 px-3 text-gray-600 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-gray-600 md:dark:hover:bg-transparent">Education
-                    </div>
-                  </li>
-                  <li>
-                    <div className=" cursor-pointer block py-2 px-3 text-gray-600 rounded hover:bg-gray-800 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-gray-600 md:dark:hover:bg-transparent" onClick={handlescrolltocontact}>Contact</div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <div className="h-screen w-screen flex flex-col justify-center items-center relative z-10">
-            {isLoading && (
-              <div className="spinner"></div>
-            )}
-            <div className='text-center ml-10 mr-10'>
-              <h2 className='text-gray-600 text-[100px] '>Jepsoft</h2>
-              <h2 className='text-gray-600 text-[30px] '>Transforming industries with cutting-edge software solutions</h2>
-            </div>
-          </div>
-          <div id="aboutUsSection" >
-            <hr className=' ' />
-            <section className=" min-h-svh">
-              <div className="py-12">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                  <div className="lg:text-center">
-                    {/* <p className="font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-center text-gray-100 sm:text-4xl">
-                      About Us
-                    </p>
-                    <br />
-                    <br /> */}
-                  </div>
-                  <br />
-                  <div >
-                    <div className="">
-                      <p className="mt-1  text-lg text-gray-500 lg:mx-auto text-center">
-                        At Jepsoft, we empower businesses with innovative software solutions designed to streamline workflows, enhance
-                        data security, improve customer experience. Our team of passionate developers and industry experts is dedicated
-                        to crafting user-friendly and efficient tools that help you achieve increased productivity, reduced costs, improved
-                        decision-making.
-                      </p>
-                      <br />
-                      <br />
-                      <div className="lg:text-center">
-                        {/* <p className="font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-center text-gray-600 sm:text-3xl">
-                          Currently Working With
-                        </p>
-                        <br />
-                        <br />
-                        <br />
-                        <div className='flex justify-center'>
-                          <div className='flex flex-col items-center mx-2 my-4 mr-10 ml-10 mb-12'>
-                            <Image src={Italy} alt='' className='w-20 h-20' />
-                            <h3 className='text-gray-600 mt-5'>Italy</h3>
-                          </div>
-                          <div className='flex flex-col items-center mx-2 my-4 mr-10 ml-10 mb-12'>
-                            <Image src={SL} alt='' className='w-20 h-20' />
-                            <h3 className='text-gray-600 mt-5'>Sri Lanka</h3>
-                          </div>
-                        </div>
-                        <br />
-                        <br />
-                        <br /> */}
-                        <div className="lg:text-center">
-                          <p className="font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-center text-gray-600 sm:text-3xl">
-                            Expert With
-                          </p>
-                          <br />
-                          <br />
-                          <br />
-                          <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-items-center'>
-                            <div className='flex flex-col items-center my-4'>
-                              <Image src={larval} alt='Laravel' className='w-20 h-20' />
-                              <h3 className='text-gray-500 mt-5'>Laravel</h3>
-                            </div>
-                            <div className='flex flex-col items-center my-4'>
-                              <Image src={php} alt='PHP' className='w-20 h-20' />
-                              <h3 className='text-gray-500 mt-5'>PHP</h3>
-                            </div>
-                            <div className='flex flex-col items-center my-4'>
-                              <Image src={sql} alt='SQL' className='w-20 h-20' />
-                              <h3 className='text-gray-500 mt-5'>SQL</h3>
-                            </div>
-                            <div className='flex flex-col items-center my-4'>
-                              <Image src={Dotnet} alt='.NET' className='w-20 h-20' />
-                              <h3 className='text-gray-500 mt-5'>.NET</h3>
-                            </div>
-                            <div className='flex flex-col items-center my-4'>
-                              <Image src={react} alt='React' className='w-20 h-20' />
-                              <h3 className='text-gray-500 mt-5'>React</h3>
-                            </div>
-                            <div className='flex flex-col items-center my-4'>
-                              <Image src={java} alt='Java' className='w-20 h-20' />
-                              <h3 className='text-gray-500 mt-5'>Java</h3>
-                            </div>
-                            <div className='flex flex-col items-center my-4'>
-                              <Image src={shift} alt='Shift' className='w-20 h-20' />
-                              <h3 className='text-gray-500 mt-5'>Shift</h3>
-                            </div>
-                            <div className='flex flex-col items-center my-4'>
-                              <Image src={python} alt='Python' className='w-20 h-20' />
-                              <h3 className='text-gray-500 mt-5'>Python</h3>
-                            </div>
-                            <div className='flex flex-col items-center my-4'>
-                              <Image src={node} alt='Node' className='w-20 h-20' />
-                              <h3 className='text-gray-500 mt-5'>Node</h3>
-                            </div>
-                            <div className='flex flex-col items-center my-4'>
-                              <Image src={cShape} alt='C#' className='w-20 h-20' />
-                              <h3 className='text-gray-500 mt-5'>C#</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <hr className='' />
-            <section className="min-h-svh" id='servicesSection'>
-              <div className="py-12 ">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="lg:text-center">
-                    <p className="font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-center text-gray-600 sm:text-4xl">
-                      Services
-                    </p>
-                    <br />
-                    <br />
-                  </div>
-                  <br />
-                  <div >
-                    <div className=" p-4">
-                      <p className="mt-4  text-lg text-gray-500 lg:mx-auto text-center">
-                        At Jepsoft, we pride ourselves on delivering top-notch software solutions tailored to meet the unique needs of our clients.
-                        Our team of skilled professionals specializes in a wide range of services, ensuring that we can address various
-                        aspects of your software development journey.
-                      </p>
-                      <br />
-                      <br />
-                      <br />
-                      <div className="flex flex-wrap justify-center text-center">
-                        {[
-                          { src: soft_dev, text: "Custom Software Development" },
-                          { src: web_dev, text: "Web Development" },
-                          { src: mobile_dev, text: "Mobile Application Development" },
-                          { src: maintain, text: "Maintenance and Support" },
-                          { src: social_manage, text: "Social media management" },
-                        ].map((item, index) => (
-                          <div
-                            key={index}
-                            className="w-1/2 sm:w-1/4 md:w-1/5 p-2 flex flex-col items-center"
-                          >
-                            <Image src={item.src} alt="" className="w-20 h-20 mt-5 mb-5" />
-                            <h3 className="text-gray-500 mt-5 w-36">{item.text}</h3>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <hr className=' ' />
-            <section className="min-h-svh" id='contactSection'>
-              <div className="py-12 ">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                  <div className="lg:text-center">
-                    {/* <p className="font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-center text-gray-100 sm:text-4xl">
-                      Contact Us
-                    </p> */}
-                    {/* <br />
-                    <br /> */}
-                  </div>
-                  <br />
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
-                    <div className="  p-4 rounded-3xl z-10 ml-[10%] boxshadow bg-gray-100 mr-[10%]">
-                      <section className=" rounded-3xl">
-                        <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md ">
-                          {/* <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-100">Contact Us</h2> */}
-                          <p className="mb-8 lg:mb-16 font-light text-center text-gray-900 dark:text-gray-400 sm:text-xl">Describe What You Need</p>
-                          <form onSubmit={handleSubmit} className="space-y-8 text-gray-600">
-                            <div>
-                              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-600">Your email</label>
-                              <input
-                                type="email"
-                                id="email"
-                                className="text-gray-600 boxshadow shadow-sm bg-gray-200 text-sm rounded-[20px] focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                                placeholder="Your Email"
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                              />
-                            </div>
-                            <div>
-                              <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-600">Subject</label>
-                              <input
-                                type="text"
-                                id="subject"
-                                className="block p-3 w-full text-sm boxshadow text-gray-600 bg-gray-200 rounded-[20px] shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                                placeholder="Topic"
-                                required
-                                value={subject}
-                                onChange={(e) => setSubject(e.target.value)}
-                              />
-                            </div>
-                            <div className="sm:col-span-2">
-                              <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-600">Your message</label>
-                              <textarea
-                                id="message"
-                                rows="6"
-                                className="block p-2.5 w-full boxshadow text-sm text-gray-900 bg-gray-200 rounded-[20px] shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Let us know how we can help you"
-                                required
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
-                              ></textarea>
-                            </div>
-                            <button type="submit" className="bg-gray-200 boxshadow py-3 px-5 text-sm font-medium text-center text-gray-600 rounded-[20px] bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 border">
-                              Send message
-                            </button>
-                          </form>
-                        </div>
-                      </section>
-                    </div>
-                    <div className=" p-4 z-10">
-                      <p className="mt-4  text-lg text-gray-500 lg:mx-auto">
-                        Welcome to Jepsoft , where innovation meets efficiency. As a leading software company, we specialize in crafting tailored solutions to
-                        meet your unique needs. Whether you're seeking cutting-edge technology, seamless integration, or expert support, our team is here                                                                           to empower your success.
-                      </p>
-                      <br />
-                      <p className="mt-4 max-w-3xl  text-lg text-gray-500 lg:mx-auto">
-                        Contact us today to explore how our software solutions can elevate your business to new heights.
-                        Let's embark on a journey of digital transformation together.
-                      </p>
-                      <br /><br /><br />
-                      <ul className="flex justify-center mt-5 space-x-5 ">
-                        <li>
-                          <a href="https://web.facebook.com/profile.php?id=61558793650349" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600 dark:text-gray-400">
-                            <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                              <path fill-rule="evenodd"
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.instagram.com/jepsoft?igsh=MTd1dHplcHcweTJleA==" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600 dark:text-gray-400">
-                            <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                              <path fill-rule="evenodd"
-                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                clip-rule="evenodd"></path>
-                            </svg>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://wa.link/6rkzec" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600 dark:text-gray-400">
-                            <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                              <path fill="currentColor" fill-rule="evenodd" d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z" clip-rule="evenodd" />
-                              <path fill="currentColor" d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z" />
-                            </svg>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.linkedin.com/company/jepsoft/about/" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600 dark:text-gray-400">
-                            <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                              <path fill-rule="evenodd" d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z" clip-rule="evenodd" />
-                              <path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
-                            </svg>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <hr className='' />
-            <footer className=" absolute left-0 right-0">
-              <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-                <div className="md:flex md:justify-between">
-                  <div className="mb-6 md:mb-0">
-                    <a href="https://jepsoft.com/" className="flex items-center">
-                      <Image src={Jepsoft} className="w-20" alt="FlowBite Logo" />
-                      <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-600">Jepsoft</span>
-                    </a>
-                  </div>
-                  <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-                    <div className=' hid'>
-                      <h2 className="mb-6 text-sm font-semibold text-gray-600">Contact</h2>
-                      <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                        <li className="mb-4">
-                          <a href="" className="hover:underline z-10">+94 77 483 5253</a>
-                        </li>
-                        <li>
-                          <a href="" className="hover:underline">Jepsoft</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h2 className="mb-6 text-sm font-semibold text-gray-600">Follow us</h2>
-                      <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                        <li className="mb-4">
-                          <a href="https://web.facebook.com/profile.php?id=61558793650349" className="hover:underline ">Facebook</a>
-                        </li>
-                        <li>
-                          <a href="https://www.instagram.com/jepsoft?igsh=MTd1dHplcHcweTJleA==" className="hover:underline">Instagram</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h2 className="mb-6 text-sm font-semibold text-gray-600">Legal</h2>
-                      <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                        <li className="mb-4">
-                          <a href="#" className="hover:underline">Privacy Policy</a>
-                        </li>
-                        <li>
-                          <a href="#" className="hover:underline">Terms &amp; Conditions</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <hr className=" left-0 right-0 mt-3 border-gray-200 w-full absolute" />
-                <div className="sm:flex sm:items-center sm:justify-between mt-5">
-                  <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" className="hover:underline">Jepsoft</a>. All Rights Reserved.
-                  </span>
-                  <div className="flex mt-4 sm:justify-center sm:mt-0">
-                    <a href="https://web.facebook.com/profile.php?id=61558793650349" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600">
-                      <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
-                        <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
-                      </svg>
-                      <span className="sr-only">Facebook page</span>
-                    </a>
-                    <a href="https://www.instagram.com/jepsoft?igsh=MTd1dHplcHcweTJleA==" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600 ms-5">
-                      <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill="currentColor" fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" clip-rule="evenodd" />
-                      </svg>
-                      <span className="sr-only">Discord community</span>
-                    </a>
-                    <a href="https://wa.link/6rkzec" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600 ms-5">
-                      <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path fill="currentColor" fill-rule="evenodd" d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z" clip-rule="evenodd" />
-                        <path fill="currentColor" d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z" />
-                      </svg>
-                      <span className="sr-only">Whats App page</span>
-                    </a>
-                    <a href="https://www.linkedin.com/company/jepsoft/about/" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-600 ms-5">
-                      <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z" clip-rule="evenodd" />
-                        <path d="M7.2 8.809H4V19.5h3.2V8.809Z" />
-                      </svg>
-                      <span className="sr-only">Linkedin account</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </footer>
-          </div>
-        </div>
-      </div>
+      </footer>
     </div>
-  );
+  )
 }

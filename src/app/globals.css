@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 *{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-family:sans-serif;
 }
 body{
   background-color: #FFFFFF;
   overflow-x: hidden;
+ cursor: url(./cursor-pointer.svg), none;
 }
 .avbar-default {
   transition: max-height 0.3s ease-in-out;
@@ -45,37 +46,6 @@ body{
   left: 0px;
   right: 0px;
   background: #036783;
-}
-
-.wave {
-  background: url(wave.svg) repeat-x;
-  position: absolute;
-  width: 6400px;
-  top: -198px;
-  overflow-x: hidden;
-  left: 0;
-  height: 198px;
-  transform: translate(0, 0, 0);
-  animation: wave 7s ease infinite;
-}
-
-.wave:nth-of-type(2) {
-  top: -168px;
-  animation: swell 4s ease infinite;
-  opacity: 1;
-}
-
-@keyframes wave {
-  0% { margin-left: 0; }
-  100% { margin-left: -1600px;}
-}
-@keyframes swell {
-  0%, 100% {
-    transform: translate(0, -30px);
-  }
-  50% {
-    transform: translate(0, 5px);
-  }
 }
 .infinity-icon {
   position: relative;
@@ -127,3 +97,121 @@ body{
   box-shadow: 2px 2px rgba(0, 0, 0, 0.184);
 }
 
+.sp-shadow{
+  box-shadow: 4px 4px 4px 4px rgba(0, 255, 47, 0.12);
+}
+.ps-shadow{
+  box-shadow: 4px 4px 4px 4px rgba(0, 110, 255, 0.12);
+}
+.cs-shadow{
+  box-shadow: 4px 4px 4px 4px rgba(255, 0, 0, 0.12);
+}
+/* Apply this gradient to the text */
+.ai-gradient-bg{
+  background: linear-gradient(135deg, #0080ff, #af69ff, #FF69B4, #0080ff); 
+}
+.ai-gradient-text {
+  font-size: 33px; /* Adjust the font size */
+  font-weight: bold;
+  text-shadow: 3px 3px   rgba(255, 255, 255, 0.141);
+  background: linear-gradient(135deg, #0080ff, #af69ff, #FF69B4, #0080ff); /* Updated gradient */
+  -webkit-background-clip: text; /* For Webkit browsers (Chrome, Safari) */
+  background-clip: text; /* For other browsers that support this property */
+  color: transparent;
+  text-align: center; /* Adjust text alignment as needed */
+  animation: gradient-animation 6s ease-in-out infinite, glowing 6s ease-in-out infinite alternate;
+}
+.ai-gradient-texx {
+  font-weight: bold;
+  text-shadow: 3px 3px   rgba(0, 0, 0, 0.141);
+  background: linear-gradient(135deg, #0080ff, #af69ff, #FF69B4, #0080ff); /* Updated gradient */
+  -webkit-background-clip: text; /* For Webkit browsers (Chrome, Safari) */
+  background-clip: text; /* For other browsers that support this property */
+  color: transparent;
+  text-align: center; /* Adjust text alignment as needed */
+  animation: gradient-animation 6s ease-in-out infinite, glowing 6s ease-in-out infinite alternate;
+}
+.ai-gradient-textt {
+  padding-top: 3%;
+  font-weight: bold;
+  background: linear-gradient(135deg, #0080ff, #af69ff, #FF69B4, #0080ff); /* Updated gradient */
+  -webkit-background-clip: text; /* For Webkit browsers (Chrome, Safari) */
+  background-clip: text; /* For other browsers that support this property */
+  color: transparent;
+  text-align: center; /* Adjust text alignment as needed */
+}
+.ai-gradient-texttv{
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-weight: bold;
+  background: linear-gradient(135deg, #0080ff, #af69ff, #FF69B4, #0080ff); /* Gradient background */
+  background-clip: text; /* For browsers that support this property */
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent; /* Text color set to transparent to show gradient */
+  text-align: center; /* Center the text */
+  display: inline-block; 
+}
+
+
+
+
+
+@keyframes updown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-updown {
+  animation: updown 2s ease-in-out infinite;
+}
+.cloud {
+  margin-left: -70px;
+  background: white;
+  border-radius: 15px;
+  width: 100px;
+  height:18px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: scale(0.5); 
+  animation: popInOut 5s infinite, animateUpDown 2s infinite; 
+}
+
+
+
+
+
+
+.text {
+  font-size: 0.75rem; /* Smaller text */
+  font-weight: bold;
+  background: linear-gradient(135deg, #0080ff, #af69ff, #FF69B4, #0080ff); /* Updated gradient */
+  -webkit-background-clip: text; /* For Webkit browsers (Chrome, Safari) */
+  background-clip: text; /* For other browsers that support this property */
+  color: transparent;
+  text-align: center; /* Adjust text alignment as needed */
+  animation: gradient-animation 6s ease-in-out infinite, glowing 6s ease-in-out infinite alternate;
+}
+
+@keyframes popInOut {
+  0%, 80% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  10%, 70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes animateUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
