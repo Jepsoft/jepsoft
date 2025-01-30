@@ -12,7 +12,7 @@
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
-    "framer-motion": "^11.0.25",
+    "framer-motion": "^11.18.2",
     "next": "^14.2.20",
     "notistack": "^3.0.1",
     "react": "^18",
