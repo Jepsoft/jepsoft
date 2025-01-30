@@ -444,7 +444,7 @@ export default function Home() {
         </div>
         <div className=" min-h-svh bg-white text-black ">
           <h2 className="text-[30px] font-semibold text-center pt-14" data-aos="fade-up" >What Our <span className="text-[#2A92FF]">Clients </span>Say</h2>
-          <div className="flex justify-between mt-12 ml-0 mr-0 lg:ml-[5%] lg:mr-[5%]">
+          <div className="flex justify-between mt-12 ml-0 mr-0 xl:ml-[5%] xl:mr-[5%]">
             <div className=" flex justify-between ml-6 mr-6" data-aos="zoom-in-up" >
               <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]">
                 <div className="ml-[20px] mr-[20px]">
