@@ -270,7 +270,7 @@ export default function Home() {
             <p className="text-white text-[21px]">Based in Sri Lanka. Delivering Innovative Solutions Worldwide</p>
           </div>
         </div>
-        <div className="bg-[#EEF6FF] absolute left-0  right-0 bottom-0 top-[100vh] min-h-[100vh] text-black" >
+        <div className="bg-[#EEF6FF] absolute left-0  right-0 max-h-fit top-[100vh]  text-black" >
           <div className="w-full text-center mt-[2%]">
             <h2 className="text-center font-semibold text-[30px]" data-aos="fade-top" >Discover the Power of <span className="text-[#2A92FF]">Jepsoft</span></h2>
             <p className="mt-6 ml-[4%] mr-[4%] text-justify mb-5 text-[18px] " data-aos="fade-top" >Jepsoft is a forward-thinking software company committed to empowering businesses through innovative and tailored solutions. Our expertise spans custom software development,Web Development, NFC card creation, ID card production, and a wide
@@ -345,7 +345,7 @@ export default function Home() {
             <br />
           </div>
         </div>
-        <div className=" min-h-[100vh] bg-[#EDF6FF]"></div>
+        <div className=" min-h-[65vh] bg-[#EDF6FF]"></div>
         <div className="bg-[#EDF6FF] pb-2 min-h-[100vh] text-black">
           <h2 className="text-[30px] font-semibold text-center pt-4 pb-4" data-aos="fade-top" >How <span className="text-[#2A92FF]">Jepsoft</span> Perform With Your Project</h2>
           <div className="flex justify-center pt-10 " >
