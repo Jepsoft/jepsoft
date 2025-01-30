@@ -27,7 +27,7 @@ import Android from "./icons/Android.png";
 import python from "./icons/python.webp";
 import Map from "./images/map.png";
 import Aravindha from "./icons/aravindha.png";
-
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
@@ -111,10 +111,112 @@ export default function Home() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
+  const sliderRef = useRef(null);
+  const [isWiggleActive, setIsWiggleActive] = useState(true);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    let index = 0;
+
+    const interval = setInterval(() => {
+      if (slider) {
+        const cardWidth = slider.children[0].offsetWidth;
+        const containerWidth = slider.offsetWidth;
+        const itemsPerView = Math.floor(containerWidth / cardWidth);
+        index = (index + 1) % (slider.children.length - itemsPerView + 1);
+
+        slider.scrollTo({
+          left: index * cardWidth,
+          behavior: "smooth",
+        });
+      }
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    // Stop wiggle effect after 5 seconds
+    const timeout = setTimeout(() => setIsWiggleActive(false), 5000);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const services = [
+    {
+      title: "Custom Software Development",
+      description:
+        "We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth.",
+    },
+    {
+      title: "Web Development",
+      description:
+        "We build responsive and scalable websites tailored to your business needs, ensuring high performance and engaging user experiences.",
+    },
+    {
+      title: "Mobile App Development",
+      description:
+        "Our team crafts intuitive and feature-rich mobile applications for Android and iOS to enhance customer engagement and business growth.",
+    },
+    {
+      title: "UI/UX Design",
+      description:
+        "We design aesthetically pleasing and user-friendly interfaces to provide seamless and intuitive user experiences.",
+    },
+  ];
+  const TestimonialCard = ({ name, position, imageSrc, rating, review }) => {
+    return (
+      <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px] p-6 flex-shrink-0 w-[300px]" data-aos="zoom-in-up">
+        <div className="text-center">
+          <p className="mb-3 pt-4 font-bold">Excellent Service!</p>
+          <p className="text-sm">{review}</p>
+        </div>
+        <div className="text-[#FFD700] flex justify-center text-[30px] mt-2">{Array(rating).fill('★').join(' ')}</div>
+        <div className="flex items-center justify-center mt-4">
+          <Image src={imageSrc} alt={name} className="w-12 h-12 rounded-full" />
+          <div className="ml-4">
+            <p className="font-bold">{name}</p>
+            <p className="text-[10px]">{position}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const testimonials = [
+    {
+      name: "Mr. Aravindha Koralage",
+      position: "Managing Director At Global Talent Solutions",
+      imageSrc: Aravindha,
+      rating: 5,
+      review: "I had an amazing experience with this service. The team was professional, the quality was top-notch, and the response time was super fast. Highly recommend to everyone!"
+    },
+    {
+      name: "Mr. Aravindha Koralage",
+      position: "Managing Director At Global Talent Solutions",
+      imageSrc: Aravindha,
+      rating: 5,
+      review: "I had an amazing experience with this service. The team was professional, the quality was top-notch, and the response time was super fast. Highly recommend to everyone!"
+    },
+    {
+      name: "Mr. Aravindha Koralage",
+      position: "Managing Director At Global Talent Solutions",
+      imageSrc: Aravindha,
+      rating: 4,
+      review: "I had an amazing experience with this service. The team was professional, the quality was top-notch, and the response time was super fast. Highly recommend to everyone!"
+    },
+    {
+      name: "Mr. Aravindha Koralage",
+      position: "Managing Director At Global Talent Solutions",
+      imageSrc: Aravindha,
+      rating: 5,
+      review: "I had an amazing experience with this service. The team was professional, the quality was top-notch, and the response time was super fast. Highly recommend to everyone!"
+    }
+  ];
 
   return (
-    <div className=" text-white" >
-        <Image src={BG} className=" relative left-0 right-0 top-0  object-cover max-h-svh overflow-y-hidden " alt="Wallpaper" />
+    <div className=" text-white " >
+      <div className="min-h-svh">
+        <Image src={BG} className=" absalute left-0 right-0 top-0 min-h-svh  object-cover max-h-svh overflow-y-hidden " alt="Wallpaper" />
         <nav data-aos="fade-up"
           className={`fixed w-full z-20 top-0 left-0 transition-all duration-300  ${scrolled
             ? " bg-gray-900 shadow-lg pb-1 pt-1 bg-opacity-85"
@@ -214,331 +316,184 @@ export default function Home() {
             </div>
           </div>
         </nav>
-        <div className=" absolute bottom-[50px] ml-[60px]  " data-aos="fade-left" >
-          <h2 className="text-white text-[50px] font-semibold">Transforming industries with cutting-edge</h2>
-          <h2 className="text-white text-[50px] font-semibold">software solutions</h2>
+        <div className="absolute bottom-[50px] ml-[20px] md:ml-[40px] lg:ml-[60px]" data-aos="fade-left">
+          <h2 className="text-white text-[30px] md:text-[40px] lg:text-[50px] font-semibold">
+            Transforming industries with cutting-edge
+          </h2>
+          <h2 className="text-white text-[30px] md:text-[40px] lg:text-[50px] font-semibold">
+            software solutions
+          </h2>
           <br />
-          <p className="text-white text-[21px]">Based in Sri Lanka. Delivering Innovative Solutions Worldwide</p>
+          <p className="text-white text-[16px] md:text-[18px] lg:text-[21px]">
+            Based in Sri Lanka. Delivering Innovative Solutions Worldwide
+          </p>
         </div>
+
         <div className="">
           <div className="chat-container duration-500 animate-bounce " >
             <Image src={Bot} className="bot w-16 h-16 fixed bottom-10 right-10 z-50" alt="chat bot" />
-            <p className="chat-text w-44  text-white h-9 flex justify-center items-center rounded-[25px] fixed bottom-28 right-24 z-50 bg-gray-800">
+            <p className="chat-text w-44 text-white h-9 hidden md:flex justify-center items-center rounded-[25px] fixed bottom-28 right-24 z-50 bg-gray-800">
               <span className="typing max-w-32"   >Chat with Jemo</span>
             </p>
           </div>
         </div>
-       
-      <div className="bg-[#EEF6FF]  text-black" >
+      </div>
+
+      <div className="bg-[#EEF6FF]  text-black  " >
         <div className="w-full text-center ">
+          <br />
           <h2 className="text-center font-semibold text-[30px]  pt-6" data-aos="fade-top" >Discover the Power of <span className="text-[#2A92FF]">Jepsoft</span></h2>
           <p className="mt-6 ml-[4%] mr-[4%] text-justify mb-5 text-[18px] " data-aos="fade-top" >Jepsoft is a forward-thinking software company committed to empowering businesses through innovative and tailored solutions. Our expertise spans custom software development,Web Development, NFC card creation, ID card production, and a wide
             range of advanced digital tools. By streamlining workflows, enhancing data security, and elevating customer experiences, we help businesses thrive in an ever-evolving market. With a team of passionate developers and industry experts,
             we deliver user-friendly, efficient solutions designed to boost productivity, reduce operational costs, and support informed decision-making. At Jepsoft, we are dedicated to turning your vision into reality with technology that works for you.
           </p>
+          <br />
         </div>
         <div className="bg-[#100425] ">
           <div className="border-cyan-400" >
             <h2 className="text-white font-semibold text-[25px] text-center pt-14">What We Build</h2>
           </div>
-          <div className="flex justify-center pt-[4%] " >
-            <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
-              <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
-                <div className="flex justify-center">
-                  <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
-                </div>
-                <div className="flex justify-center">
-                  <p className="text-white text-[15px] mb-4">Custom Software Development</p>
-                </div>
-                <div className="flex justify-center">
-                  <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
-                </div>
-                <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
-              </div>
+          {isWiggleActive && (
+            <div className="flex justify-center mt-3">
+              <motion.div
+                className="flex justify-self-center   text-white text-xs bg-black px-3 py-1 rounded-full"
+                animate={{ x: [0, 5, -5, 0] }}
+                transition={{ repeat: Infinity, duration: 1 }}
+              >
+                Swipe to Scroll →
+              </motion.div>
             </div>
-            <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
-              <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
-                <div className="flex justify-center">
-                  <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
-                </div>
-                <div className="flex justify-center">
-                  <p className="text-white text-[15px] mb-4">Custom Software Development</p>
-                </div>
-                <div className="flex justify-center">
-                  <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
-                </div>
-                <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
-              </div>
+          )}
+          <div className="mt-10 mb-10 overflow-hidden relative">
+            {/* Scroll Hint (Animated Wiggle) */}
+            <div className="flex justify-between  overflow-x-auto  snap-x px-4 md:px-0 ml-[5%] mr-[5%]">
+              {services.map((service, i) => (
+                <motion.div
+                  key={i}
+                  className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] snap-start min-w-[280px] md:min-w-[320px] first:ml-2 last:mr-2 ml-5 mr-5"
+                  data-aos="zoom-in-up"
+                >
+                  <div className="rounded-[40px] bg-[#100425] px-4 pt-10 pb-5">
+                    <div className="flex justify-center">
+                      <Image
+                        src={CSD}
+                        className="w-20 h-20 mb-4"
+                        alt={service.title}
+                      />
+                    </div>
+                    <div className="flex justify-center">
+                      <p className="text-white text-[15px] mb-4">{service.title}</p>
+                    </div>
+                    <div className="flex justify-center h-[110px]">
+                      <p className="max-w-[230px] text-center text-[12px] text-white">
+                        {service.description}
+                      </p>
+                    </div>
+                    <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">
+                      Explore More
+                    </h4>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
-              <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
-                <div className="flex justify-center">
-                  <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
-                </div>
-                <div className="flex justify-center">
-                  <p className="text-white text-[15px] mb-4">Custom Software Development</p>
-                </div>
-                <div className="flex justify-center">
-                  <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
-                </div>
-                <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
-              </div>
-            </div>
-            <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
-              <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
-                <div className="flex justify-center">
-                  <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
-                </div>
-                <div className="flex justify-center">
-                  <p className="text-white text-[15px] mb-4">Custom Software Development</p>
-                </div>
-                <div className="flex justify-center">
-                  <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
-                </div>
-                <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
-              </div>
-            </div>
+
           </div>
           <br />
           <br />
           <br />
         </div>
-        <div className="bg-[#EDF6FF] pb-2 min-h-[100vh] text-black">
+        <div className="bg-[#EDF6FF] pb-2 min-h-[100vh] text-black pl-2 pr-2">
           <h2 className="text-[30px] font-semibold text-center pt-9 pb-4" data-aos="fade-top" >How <span className="text-[#2A92FF]">Jepsoft</span> Perform With Your Project</h2>
-          <div className="flex justify-center pt-10 " >
-            <div className="relative duration-500 hover:scale-105 hover:duration-500 hover:shadow-lg  bg-white rounded-[40px] bg-gradient-to-r shadow-md ml-8 mr-8 " data-aos="zoom-in-up" >
-              <div className="rounded-[40px]  pl-4 pr-4 pt-5 pb-5 ">
-                <div className="flex justify-center">
-                  <Image src={Hand} alt="Smart Business Analysis" className="w-20 h-20" />
-                </div>
-                <div className="flex justify-center">
-                  <p className=" text-[15px] mb-4 text-black font-semibold ">Smart Business Analysis</p>
-                </div>
-                <div className="flex justify-center">
-                  <p className=" max-w-[340px] text-center text-[11px] text-black text-opacity-50 " >At Jepsoft, we work closely with you to understand your business needs through clear communication and strategic planning. By analyzing your challenges, we craft tailored solutions and provide actionable insights to keep your business ahead. Our focus is on delivering effective strategies that drive sustainable growth and success</p>
-                </div>
-              </div>
-            </div>
-            <div className="relative duration-500 hover:scale-105 hover:duration-500 hover:shadow-lg bg-white  rounded-[40px] bg-gradient-to-r shadow-md ml-8 mr-8 " data-aos="zoom-in-up">
-              <div className="rounded-[40px]  pl-4 pr-4 pt-10 pb-5 ">
-                <div className="flex justify-center">
-                  <Image src={newimage} alt="Smart Business Analysis" className="w-16 h-16 mb-3" />
-                </div>
-                <div className="flex justify-center">
-                  <p className=" text-[15px] mb-4 text-black font-semibold ">AI-Powered Design & Development</p>
-                </div>
-                <div className="flex justify-center">
-                  <p className=" max-w-[340px] text-center text-[11px] text-black text-opacity-50 " >With AI-Powered Design & Development, we combine advanced artificial intelligence with creative design to deliver innovative and efficient solutions for your business. We use AI to streamline processes, improve user experiences, and build smarter, more scalable applications. Our goal is to keep your business ahead with cutting-edge technology and seamless, tailored development</p>
+          <div className="flex justify-center pt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+              <div className="relative duration-500 hover:scale-105 hover:shadow-lg bg-white rounded-[40px] shadow-md p-6" data-aos="zoom-in-up">
+                <div className="rounded-[40px] text-center">
+                  <div className="flex justify-center">
+                    <Image src={Hand} alt="Smart Business Analysis" className="w-20 h-20" />
+                  </div>
+                  <p className="text-[15px] mt-4 mb-2 text-black font-semibold">Smart Business Analysis</p>
+                  <p className="max-w-[340px] text-center text-[11px] text-black text-opacity-50 mx-auto">
+                    At Jepsoft, we work closely with you to understand your business needs through clear communication and strategic planning. By analyzing your challenges, we craft tailored solutions and provide actionable insights to keep your business ahead.
+                  </p>
                 </div>
               </div>
-            </div>
-            <div className="relative duration-500 hover:scale-105 hover:duration-500 hover:shadow-lg bg-white  rounded-[40px] bg-gradient-to-r shadow-md ml-8 mr-8 " data-aos="zoom-in-up" >
-              <div className="rounded-[40px] pl-4 pr-4 pt-10 pb-5 ">
-                <div className="flex justify-center">
-                  <Image src={Computer} alt="Smart Business Analysis" className="w-20 h-20 p-2" />
+
+              <div className="relative duration-500 hover:scale-105 hover:shadow-lg bg-white rounded-[40px] shadow-md p-6" data-aos="zoom-in-up">
+                <div className="rounded-[40px] text-center">
+                  <div className="flex justify-center">
+                    <Image src={newimage} alt="AI-Powered Design & Development" className="w-16 h-16 mb-3" />
+                  </div>
+                  <p className="text-[15px] mt-4 mb-2 text-black font-semibold">AI-Powered Design & Development</p>
+                  <p className="max-w-[340px] text-center text-[11px] text-black text-opacity-50 mx-auto">
+                    With AI-Powered Design & Development, we combine artificial intelligence with creative design to deliver innovative and efficient solutions. We streamline processes, improve user experiences, and build smarter applications.
+                  </p>
                 </div>
-                <div className="flex justify-center">
-                  <p className=" text-[15px] mb-4 text-black font-semibold ">Live Project Tracker</p>
-                </div>
-                <div className="flex justify-center">
-                  <p className=" max-w-[340px] text-center text-[11px] text-black text-opacity-50 " >Live Project Tracking System gives clients real-time access to their project’s progress through a user-friendly dashboard. With clear insights into milestones, updates, and overall status, it ensures complete transparency and seamless collaboration. Designed to keep stakeholders informed and aligned, our system simplifies project management while building trust. At JepSoft, we make staying on top of your projects effortless and efficient</p>
+              </div>
+
+              <div className="relative duration-500 hover:scale-105 hover:shadow-lg bg-white rounded-[40px] shadow-md p-6" data-aos="zoom-in-up">
+                <div className="rounded-[40px] text-center">
+                  <div className="flex justify-center">
+                    <Image src={Computer} alt="Live Project Tracker" className="w-20 h-20 p-2" />
+                  </div>
+                  <p className="text-[15px] mt-4 mb-2 text-black font-semibold">Live Project Tracker</p>
+                  <p className="max-w-[340px] text-center text-[11px] text-black text-opacity-50 mx-auto">
+                    Live Project Tracking System provides real-time access to project progress through a dashboard, ensuring transparency and seamless collaboration. Designed to keep stakeholders informed and aligned.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
+
           <h2 className="text-[30px] font-semibold text-center pt-14">Our Technology <span className="text-[#2A92FF]">Stack</span>  </h2>
           <div className="flex justify-center">
-            <div className="w-[90%] mx-auto grid gap-y-8 mt-16 mb-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ">
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                data-aos="fade-up"
-                src={logoReact}
-                alt="React"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                data-aos="fade-up"
-                src={Java}
-                alt="Java"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                data-aos="fade-up"
-                src={Php}
-                alt="PHP"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                src={python}
-                data-aos="fade-up"
-                alt="Python"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                data-aos="fade-up"
-                src={Node}
-                alt="Node.js"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                data-aos="fade-up"
-                src={RFID}
-                alt="RFID"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                data-aos="fade-up"
-                src={Js}
-                alt="JavaScript"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                data-aos="fade-up"
-                src={Laraval}
-                alt="Laravel"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                src={Firbase}
-                data-aos="fade-up"
-                alt="Firebase"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                data-aos="fade-up"
-                src={Mongo}
-                alt="MongoDB"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                src={Anaconda}
-                data-aos="fade-up"
-                alt="Anaconda"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                data-aos="fade-up"
-                src={Electrone}
-                alt="Electron"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                data-aos="fade-up"
-                src={csharp}
-                alt="C#"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5 "
-                src={Github}
-                data-aos="fade-up"
-                alt="GitHub"
-              />
-              <Image
-                className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
-                src={Android}
-                data-aos="fade-up"
-                alt="Android"
-              />
+            <div className="w-[90%] mx-auto grid gap-y-8 mt-16 mb-16 grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {[logoReact, Java, Php, python, Node, RFID, Js, Laraval, Firbase, Mongo, Anaconda, Electrone, csharp, Github, Android].map(
+                (src, index) => (
+                  <Image
+                    key={index}
+                    className="w-20 h-20 hover:scale-110 transition-transform duration-500 flex justify-self-center mt-5 mb-5"
+                    data-aos="fade-up"
+                    src={src}
+                    alt={src.toString().split("/").pop().split(".")[0]}
+                  />
+                )
+              )}
             </div>
           </div>
         </div>
-        <div className=" min-h-svh bg-white text-black ">
+        <div className=" bg-white text-black ">
           <h2 className="text-[30px] font-semibold text-center pt-14" data-aos="fade-up" >What Our <span className="text-[#2A92FF]">Clients </span>Say</h2>
-          <div className="flex justify-between mt-12 ml-0 mr-0 xl:ml-[5%] xl:mr-[5%]">
-            <div className=" flex justify-between ml-6 mr-6" data-aos="zoom-in-up" >
-              <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]">
-                <div className="ml-[20px] mr-[20px]">
-                  <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
-                  <p className="max-w-[300px] text-center text-sm">
-                    I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                    and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                    and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
-                  </p>
-                </div>
-                <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
-                  ★★★★★
-                </div>
-                <div className="flex justify-center p-2">
-                  <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
-                  <div>
-                    <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
-                    <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px] ">Managing Director At Global Talent Solutions</p>
-                  </div>
-                </div>
-              </div>
+          {isWiggleActive && (
+            <div className="flex justify-center mt-3">
+              <motion.div
+                className="flex justify-self-center   text-white text-xs bg-black px-3 py-1 rounded-full"
+                animate={{ x: [0, 5, -5, 0] }}
+                transition={{ repeat: Infinity, duration: 1 }}
+              >
+                Swipe to Scroll →
+              </motion.div>
             </div>
-            <div className=" flex justify-between ml-6 mr-6" data-aos="zoom-in-up" >
-              <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]" >
-                <div className="ml-[20px] mr-[20px]">
-                  <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
-                  <p className="max-w-[300px] text-center text-sm">
-                    I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                    and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                    and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
-                  </p>
-                </div>
-                <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
-                  ★★★★★
-                </div>
-                <div className="flex justify-center p-2">
-                  <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
-                  <div>
-                    <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
-                    <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px] ">Managing Director At Global Talent Solutions</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className=" flex justify-between ml-6 mr-6" data-aos="zoom-in-up" >
-              <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]">
-                <div className="ml-[20px] mr-[20px]">
-                  <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
-                  <p className="max-w-[300px] text-center text-sm">
-                    I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                    and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                    and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
-                  </p>
-                </div>
-                <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
-                  ★★★★★
-                </div>
-                <div className="flex justify-center p-2">
-                  <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
-                  <div>
-                    <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
-                    <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px]">Managing Director At Global Talent Solutions</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className=" flex justify-between ml-6 mr-6" data-aos="zoom-in-up" >
-              <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]">
-                <div className="ml-[20px] mr-[20px]">
-                  <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
-                  <p className="max-w-[300px] text-center text-sm">
-                    I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                    and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                    and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
-                  </p>
-                </div>
-                <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
-                  ★★★★★
-                </div>
-                <div className="flex justify-center p-2">
-                  <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
-                  <div>
-                    <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
-                    <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px] ">Managing Director At Global Talent Solutions</p>
-                  </div>
-                </div>
-              </div>
+          )}
+         <div 
+  className="flex justify-between md:justify-center items-center mt-12 overflow-x-auto scrollbar-hide px-4 relative"
+  ref={sliderRef}
+>
+            <div className="flex gap-6 m-5 ">
+              {testimonials.map((testimonial, index) => (
+                <TestimonialCard key={index} {...testimonial} />
+              ))}
             </div>
           </div>
           <div className=" flex justify-center">
-            <div className="mt-6">
-              <h2 className="font-semibold text-[50px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] bg-clip-text text-transparent" data-aos="fade-top" >
+            <div className="mt-16 mb-10">
+              <h2
+                className="font-semibold text-center text-[30px] md:text-[40px] lg:text-[50px] 
+             bg-gradient-to-r from-[#3890FF] to-[#D95BB6] bg-clip-text text-transparent"
+                data-aos="fade-top"
+              >
                 Collaborate with Us to Build Smarter Solutions
               </h2>
+
               <br />
               <h3 className="text-[18px] font-semibold text-white px-4 py-2 bg-gradient-to-r flex justify-self-center from-[#3890FF] to-[#D95BB6] inline-block rounded-[25px]" data-aos="fade-bottom" >
                 Let’s Start Your Project
@@ -549,24 +504,25 @@ export default function Home() {
         </div>
         <div className="min-h-svh bg-[#D9D9D9] text-black ">
           <h2 className="text-[30px] font-semibold text-center pt-14" data-aos="fade-top">Smart <span className="text-[#2A92FF]">Solutions , </span>Worldwide <span className="text-[#2A92FF]">Impact </span></h2>
-          <div className="mt-20 flex justify-between ml-[5%] mr-[5%] mb-0">
-            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up"  >
-              <h2 className="text-[#2A92FF] font-semibold text-[60px]">1+</h2>
-              <p className="font-semibold text-center ">Years Of Experience</p>
+          <div className="mt-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0 ml-[5%] mr-[5%] mb-0">
+            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up">
+              <h2 className="text-[#2A92FF] font-semibold text-[50px] md:text-[60px]">1+</h2>
+              <p className="font-semibold text-center">Years Of Experience</p>
             </div>
-            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up" >
-              <h2 className="text-[#2A92FF] font-semibold text-[60px]">5+</h2>
-              <p className="font-semibold text-center ">Clients Connected</p>
+            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up">
+              <h2 className="text-[#2A92FF] font-semibold text-[50px] md:text-[60px]">5+</h2>
+              <p className="font-semibold text-center">Clients Connected</p>
             </div>
-            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up"  >
-              <h2 className="text-[#2A92FF] font-semibold text-[60px]">100%</h2>
-              <p className="font-semibold text-center ">Client Satisfaction Rate</p>
+            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up">
+              <h2 className="text-[#2A92FF] font-semibold text-[50px] md:text-[60px]">100%</h2>
+              <p className="font-semibold text-center">Client Satisfaction Rate</p>
             </div>
-            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up"  >
-              <h2 className="text-[#2A92FF] font-semibold text-[60px]">3+</h2>
-              <p className="font-semibold text-center ">Countries in Operation</p>
+            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up">
+              <h2 className="text-[#2A92FF] font-semibold text-[50px] md:text-[60px]">3+</h2>
+              <p className="font-semibold text-center">Countries in Operation</p>
             </div>
           </div>
+
           <div className="flex justify-center mb-10" data-aos="fade-up"  >
             <Image src={Map} alt="Jepsoft Opartion Map" className="mt-14 w-[85%] rounded-[25px] shadow-xl duration-500 hover:duration-500 hover:scale-105 " data-aos="zoom-in-up" />
           </div>
@@ -619,7 +575,7 @@ export default function Home() {
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
-              <span class="text-sm text-gray-500 sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Jepsoft™</a>. All Rights Reserved.
+              <span class="text-sm text-gray-500 sm:text-center">© 2025 <a href="https://jepsoft.com/" class="hover:underline">Jepsoft™</a>. All Rights Reserved.
               </span>
               <div class="flex mt-4 sm:justify-center sm:mt-0">
                 <a href="#" class="text-gray-500 hover:text-gray-900">
