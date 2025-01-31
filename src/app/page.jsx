@@ -331,7 +331,7 @@ export default function Home() {
             </div>
           </div>
         </nav>
-        <div className="absolute bottom-[110px] ml-[20px] md:ml-[40px] lg:ml-[60px] " data-aos="fade-left">
+        <div className="absolute bottom-[50px] ml-[20px] md:ml-[40px] lg:ml-[60px] " data-aos="fade-left">
           <h1 className=" invisible" >Transforming industries with cutting-edge software solutions</h1>
           <h2 className="text-white text-[30px] md:text-[40px] lg:text-[50px] font-semibold">
             Transforming industries with cutting-edge
@@ -387,7 +387,7 @@ export default function Home() {
           )}
           <div className="mt-10 mb-10 overflow-hidden relative">
             {/* Scroll Hint (Animated Wiggle) */}
-            <div className="flex justify-between  overflow-x-auto  snap-x px-4 md:px-0 ml-[5%] mr-[5%] pb-5 ">
+            <div className="flex justify-between  overflow-x-auto overflow-y-hidden snap-x px-4 md:px-0 ml-[5%] mr-[5%] pb-5 ">
               {services.map((service, i) => (
                 <motion.div
                   key={i}
