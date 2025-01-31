@@ -539,7 +539,7 @@ export default function Home() {
           </div>
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 pt-10">Contact Us</h2>
           <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md flex flex-col lg:flex-row justify-between items-center">
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2 mr-10">
               <form action="#" className="space-y-8">
                 <div>
                   <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
@@ -556,7 +556,7 @@ export default function Home() {
                 <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-[20px] bg-blue-700 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Send message</button>
               </form>
             </div>
-            <div className="hidden lg:block w-1/2 pl-8 ">
+            <div className="hidden lg:block w-1/2 pl-8 ml-10 ">
               <p className="text-gray-600 text-sm min-w-[350px] text-center font-bold">Have a project in mind or need expert software solutions? We’re here to help! Whether you’re looking for web development, AI solutions, or custom software, our team is ready to turn your ideas into reality.</p>
               <div className="flex justify-center mt-20">
                 <Image src={User} className="w-14 h-14 ml-3 mr-3"  alt="Social Links"/>
