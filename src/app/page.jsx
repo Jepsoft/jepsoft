@@ -532,7 +532,7 @@ export default function Home() {
         </div>
         <div>
         </div>
-        <div className="bg-white scale-105">
+        <div className="bg-white scale-100 min-w-[100vh] min-h-svh">
           <div className="text-center pt-8 ">
           <h2 className="text-[30px] font-semibold text-center pt-8 pb-10" data-aos="fade-up" >What Do you must Contact <span className="text-[#2A92FF]">Jepsoft </span></h2>
             <p className="ml-[5%] mr-[5%]" >Jepsoft is your trusted partner for smart, innovative, and high-quality digital solutions. We create custom websites, software, NFC cards, and AI-powered chatbots designed to help businesses grow. With a strong focus on quality, reliability, and customer satisfaction, we ensure every project meets the highest standards. Our expert team works closely with you to bring your ideas to life, offering seamless support and cutting-edge technology. Whether you’re a startup or an established business, Jepsoft provides the tools you need to succeed. Choose Jepsoft for solutions that make a real impact simple, powerful, and built for the future! </p>
