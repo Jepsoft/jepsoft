@@ -572,8 +572,8 @@ export default function Home() {
           <div className="p-14">
             <div className="md:flex md:justify-between">
               <div className="mb-6 md:mb-0">
-                <a href="https://jepsoft.com/" className="flex items-center">
-                  <Image src={Logo} className="h-14 object-cover w-14" alt="Jepsoft Logo" />
+                <a href="https://jepsoft.com/" className="flex items-center ml-[-20px] mt-[-20px] ">
+                  <Image src={Logo} className="h-24 object-contain w-24 mr-[-10px]" alt="Jepsoft Logo" />
                   <span className="self-center text-2xl font-semibold whitespace-nowrap text-white  ">Jepsoft</span>
                 </a>
               </div>
