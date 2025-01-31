@@ -354,7 +354,7 @@ export default function Home() {
         showBackground ? "bg-gradient-to-r from-[#3890FF] to-[#D95BB6]" : "bg-transparent"
       }`}
     >
-      <Image src={Bot} className="w-16 h-16 p-1 transition-all duration-500" alt="Chat Bot" />
+      <Image src={Bot} className="w-16 h-16 p-2 transition-all duration-500" alt="Chat Bot" />
     </div>
         </div>
       </div>
