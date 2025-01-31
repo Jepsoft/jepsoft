@@ -3,11 +3,11 @@ import Image from "next/image";
 import Bot from "./icons/happy.png";
 import axios from "axios";
 import BG from "./wallpaper.webp";
-import CSD from "./jepimg/csd.png";
-import Computer from "./jepimg/comp.png";
-import Hand from "./jepimg/hand.png";
+import CSD from "./jepimg/csd.webp";
+import Computer from "./jepimg/comp.webp";
+import Hand from "./jepimg/hand.webp";
 import 'aos/dist/aos.css';
-import newimage from "./jepimg/new.png";
+import newimage from "./jepimg/new.webp";
 import logoReact from "./icons/react.webp";
 import AOS from 'aos';
 import Java from "./icons/java.webp";
@@ -17,16 +17,17 @@ import Electrone from "./icons/Electron.webp";
 import Firbase from "./icons/Firebase.webp";
 import Github from "./icons/GitHub.webp";
 import Laraval from "./icons/Laravel.webp";
-import User from "./icons/user.png";
+import User from "./icons/user.webp";
+import Logo from "./images/logo.webp";
 import Mongo from "./icons/MongoDB.webp";
 import Node from "./icons/node.webp";
 import Anaconda from "./icons/Anaconda.webp";
 import Js from "./icons/js.webp";
 import Php from "./icons/php.webp";
-import Android from "./icons/Android.png";
+import Android from "./icons/Android.webp";
 import python from "./icons/python.webp";
-import Map from "./images/map.png";
-import Aravindha from "./icons/aravindha.png";
+import Map from "./images/map.webp";
+import Aravindha from "./icons/aravindha.webp";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -370,10 +371,10 @@ export default function Home() {
               {services.map((service, i) => (
                 <motion.div
                   key={i}
-                  className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] snap-start min-w-[280px] md:min-w-[320px] first:ml-2 last:mr-2 ml-5 mr-5"
+                  className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] snap-start min-w-[280px] md:min-w-[300px] first:ml-2 last:mr-2 ml-4 mr-4"
                   data-aos="zoom-in-up"
                 >
-                  <div className="rounded-[40px] bg-[#100425]  px-4 pt-10 pb-16">
+                  <div className="rounded-[40px] bg-[#100425]  px-4 pt-5 pb-5">
                     <div className="flex justify-center">
                       <Image
                         src={CSD}
@@ -504,7 +505,7 @@ export default function Home() {
           </div>
           <br />
         </div>
-        <div className="min-h-svh bg-[#D9D9D9] text-black ">
+        <div className="min-h-svh bg-[#D9D9D9] text-black pl-2 pr-2 ">
           <h2 className="text-[30px] font-semibold text-center pt-14" data-aos="fade-top">Smart <span className="text-[#2A92FF]">Solutions , </span>Worldwide <span className="text-[#2A92FF]">Impact </span></h2>
           <div className="mt-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0 ml-[5%] mr-[5%] mb-0">
             <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up">
@@ -532,14 +533,14 @@ export default function Home() {
         </div>
         <div>
         </div>
-        <div className="bg-white scale-100 min-w-[100vh] min-h-svh">
+        <div className="bg-white scale-100 pl-[5%] pr-[5%]  min-h-svh">
           <div className="text-center pt-8 ">
-          <h2 className="text-[30px] font-semibold text-center pt-8 pb-10" data-aos="fade-up" >What Do you must Contact <span className="text-[#2A92FF]">Jepsoft </span></h2>
-            <p className="ml-[5%] mr-[5%]" >Jepsoft is your trusted partner for smart, innovative, and high-quality digital solutions. We create custom websites, software, NFC cards, and AI-powered chatbots designed to help businesses grow. With a strong focus on quality, reliability, and customer satisfaction, we ensure every project meets the highest standards. Our expert team works closely with you to bring your ideas to life, offering seamless support and cutting-edge technology. Whether you’re a startup or an established business, Jepsoft provides the tools you need to succeed. Choose Jepsoft for solutions that make a real impact simple, powerful, and built for the future! </p>
+          <h2 className="text-[30px] font-semibold text-center pt-8 pb-10" data-aos="fade-up" >Why do you choose <span className="text-[#2A92FF]">Jepsoft </span></h2>
+            <p className="" >Jepsoft is your trusted partner for smart, innovative, and high-quality digital solutions. We create custom websites, software, NFC cards, and AI-powered chatbots designed to help businesses grow. With a strong focus on quality, reliability, and customer satisfaction, we ensure every project meets the highest standards. Our expert team works closely with you to bring your ideas to life, offering seamless support and cutting-edge technology. Whether you’re a startup or an established business, Jepsoft provides the tools you need to succeed. Choose Jepsoft for solutions that make a real impact simple, powerful, and built for the future! </p>
           </div>
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 pt-10">Contact Us</h2>
           <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md flex flex-col lg:flex-row justify-between items-center">
-            <div className="w-full lg:w-1/2 mr-10">
+            <div className="w-full lg:w-1/2 ">
               <form action="#" className="space-y-8">
                 <div>
                   <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
@@ -572,7 +573,7 @@ export default function Home() {
             <div className="md:flex md:justify-between">
               <div className="mb-6 md:mb-0">
                 <a href="https://jepsoft.com/" className="flex items-center">
-                  <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" />
+                  <Image src={Logo} className="h-14 object-cover w-14" alt="Jepsoft Logo" />
                   <span className="self-center text-2xl font-semibold whitespace-nowrap text-white  ">Jepsoft</span>
                 </a>
               </div>
