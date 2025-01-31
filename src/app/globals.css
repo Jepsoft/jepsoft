@@ -11,7 +11,7 @@
   display: none;
 }
 
-.chat-container .bot {
+.bot {
   animation: float 3s ease-in-out infinite;
 }
 

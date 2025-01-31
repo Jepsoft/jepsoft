@@ -213,7 +213,20 @@ export default function Home() {
       review: "I had an amazing experience with this service. The team was professional, the quality was top-notch, and the response time was super fast. Highly recommend to everyone!"
     }
   ];
+  const [showBackground, setShowBackground] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowBackground(true);
+      } else {
+        setShowBackground(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className=" text-white " >
       <div className="min-h-svh">
@@ -233,7 +246,7 @@ export default function Home() {
             <div className="flex md:order-2 space-x-3 rtl:space-x-reverse">
               <button
                 type="button"
-                className="text-white bg-blue-700 hover:bg-blue-800 hover:scale-105 hover:duration-500 duration-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[25px] text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white bg-gradient-to-r from-[#3890FF] to-[#D95BB6] hover:scale-105 hover:duration-500 duration-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-[25px] text-sm px-4 py-2"
               >
                 Let's Start
               </button>
@@ -330,21 +343,27 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="">
-          <div className=" relative bottom-10 chat-container duration-500 animate-bounce " >
-            <Image src={Bot} className="bot w-16 h-16 fixed bottom-10 right-10 z-50" alt="chat bot" />
+        <div className="  ">
+          <div className=" fixed right-5 bottom-2 chat-container duration-500 animate-bounce z-50" >
             <p className="chat-text w-44 text-white h-9 hidden md:flex justify-center items-center rounded-[25px] fixed bottom-28 right-24 z-50 bg-gray-800">
               <span className="typing max-w-32"   >Chat with Jemo</span>
             </p>
           </div>
+          <div
+      className={`fixed z-50 bot bottom-10 right-10 w-16 h-16  flex items-center justify-center rounded-full transition-all duration-500 ${
+        showBackground ? "bg-gradient-to-r from-[#3890FF] to-[#D95BB6]" : "bg-transparent"
+      }`}
+    >
+      <Image src={Bot} className="w-16 h-16 p-1 transition-all duration-500" alt="Chat Bot" />
+    </div>
         </div>
       </div>
 
-      <div className="bg-[#EEF6FF]  text-black  " >
+      <div className="bg-[#EEF6FF]  text-black" >
         <div className="w-full text-center ">
           <br />
           <h2 className="text-center font-semibold text-[30px]  pt-6" data-aos="fade-top" >Discover the Power of <span className="text-[#2A92FF]">Jepsoft</span></h2>
-          <p className="mt-6 ml-[4%] mr-[4%] text-center mb-5 text-[18px] " data-aos="fade-top" >Jepsoft is a forward-thinking software company committed to empowering businesses through innovative and tailored solutions. Our expertise spans custom software development,Web Development, NFC card creation, ID card production, and a wide
+          <p className="mt-6 ml-[4%] mr-[4%] text-center mb-5 text-[18px] " data-aos="fade-top" >Jepsoft is a forward thinking software company committed to empowering businesses through innovative and tailored solutions. Our expertise spans custom software development,Web Development, NFC card creation, ID card production, and a wide
             range of advanced digital tools. By streamlining workflows, enhancing data security, and elevating customer experiences, we help businesses thrive in an ever-evolving market. With a team of passionate developers and industry experts,
             we deliver user-friendly, efficient solutions designed to boost productivity, reduce operational costs, and support informed decision-making. At Jepsoft, we are dedicated to turning your vision into reality with technology that works for you.
           </p>
@@ -367,14 +386,14 @@ export default function Home() {
           )}
           <div className="mt-10 mb-10 overflow-hidden relative">
             {/* Scroll Hint (Animated Wiggle) */}
-            <div className="flex justify-between  overflow-x-auto  snap-x px-4 md:px-0 ml-[5%] mr-[5%] mb-5 ">
+            <div className="flex justify-between  overflow-x-auto  snap-x px-4 md:px-0 ml-[5%] mr-[5%] pb-5 ">
               {services.map((service, i) => (
                 <motion.div
                   key={i}
-                  className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] snap-start min-w-[280px] md:min-w-[300px] first:ml-2 last:mr-2 ml-4 mr-4"
+                  className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] snap-start min-w-[250px] md:min-w-[270px] first:ml-2 last:mr-2 ml-4 mr-4"
                   data-aos="zoom-in-up"
                 >
-                  <div className="rounded-[40px] bg-[#100425]  px-4 pt-5 pb-5">
+                  <div className="rounded-[40px] bg-[#100425] min-h-[340px] max-h-[340px]   px-4 pt-5 pb-5">
                     <div className="flex justify-center">
                       <Image
                         src={CSD}
@@ -382,16 +401,16 @@ export default function Home() {
                         alt={service.title}
                       />
                     </div>
-                    <div className="flex justify-center">
-                      <p className="text-white text-[15px] mb-4 font-bold ">{service.title}</p>
+                    <div className="flex justify-center text-center">
+                      <p className="text-white text-[15px] min-h-[40px] mb-4 font-bold ">{service.title}</p>
                     </div>
-                    <div className="flex justify-center h-[110px]">
-                      <p className="max-w-[230px] text-center text-[12px] text-white">
+                    <div className="flex justify-center max-h-[110px]">
+                      <p className="max-w-[230px] text-center text-[12px] text-white min-h-[100px] ">
                         {service.description}
                       </p>
                     </div>
                     <div className="flex justify-center">
-                      <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-2 mt-3 text-sm w-[140px] rounded-[40px]">
+                      <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF]  to-[#D95BB6] p-2 mt-3 text-sm w-[140px] rounded-[40px]">
                         Explore More
                       </h4>
                     </div>
@@ -535,10 +554,9 @@ export default function Home() {
         </div>
         <div className="bg-white scale-100 pl-[5%] pr-[5%]  min-h-svh">
           <div className="text-center pt-8 ">
-          <h2 className="text-[30px] font-semibold text-center pt-8 pb-10" data-aos="fade-up" >Why do you choose <span className="text-[#2A92FF]">Jepsoft </span></h2>
+            <h2 className="text-[30px] font-semibold text-center pt-8 pb-10" data-aos="fade-up" >Why do you choose <span className="text-[#2A92FF]">Jepsoft </span></h2>
             <p className="" >Jepsoft is your trusted partner for smart, innovative, and high-quality digital solutions. We create custom websites, software, NFC cards, and AI-powered chatbots designed to help businesses grow. With a strong focus on quality, reliability, and customer satisfaction, we ensure every project meets the highest standards. Our expert team works closely with you to bring your ideas to life, offering seamless support and cutting-edge technology. Whether you’re a startup or an established business, Jepsoft provides the tools you need to succeed. Choose Jepsoft for solutions that make a real impact simple, powerful, and built for the future! </p>
           </div>
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 pt-10">Contact Us</h2>
           <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md flex flex-col lg:flex-row justify-between items-center">
             <div className="w-full lg:w-1/2 ">
               <form action="#" className="space-y-8">
@@ -560,10 +578,10 @@ export default function Home() {
             <div className="hidden lg:block w-1/2 pl-8 ml-10 ">
               <p className="text-gray-600 text-sm min-w-[350px] text-center font-bold">Have a project in mind or need expert software solutions? We’re here to help! Whether you’re looking for web development, AI solutions, or custom software, our team is ready to turn your ideas into reality.</p>
               <div className="flex justify-center mt-20">
-                <Image src={User} className="w-14 h-14 ml-3 mr-3"  alt="Social Links"/>
-                <Image src={User} className="w-14 h-14 ml-3 mr-3"  alt="Social Links"/>
-                <Image src={User} className="w-14 h-14 ml-3 mr-3"  alt="Social Links"/>
-                <Image src={User} className="w-14 h-14 ml-3 mr-3"  alt="Social Links"/>
+                <Image src={User} className="w-14 h-14 ml-3 mr-3" alt="Social Links" />
+                <Image src={User} className="w-14 h-14 ml-3 mr-3" alt="Social Links" />
+                <Image src={User} className="w-14 h-14 ml-3 mr-3" alt="Social Links" />
+                <Image src={User} className="w-14 h-14 ml-3 mr-3" alt="Social Links" />
               </div>
             </div>
           </div>
