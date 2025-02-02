@@ -114,8 +114,7 @@ export default function Home() {
 
   return (
     <div className=" text-white" >
-      <div>
-        <Image src={BG} className=" relative left-0 right-0 top-0 bottom-0 object-cover h-[100vh] " alt="Wallpaper" />
+        <Image src={BG} className=" relative left-0 right-0 top-0  object-cover max-h-svh overflow-y-hidden " alt="Wallpaper" />
         <nav data-aos="fade-up"
           className={`fixed w-full z-20 top-0 left-0 transition-all duration-300  ${scrolled
             ? " bg-gray-900 shadow-lg pb-1 pt-1 bg-opacity-85"
@@ -215,139 +214,97 @@ export default function Home() {
             </div>
           </div>
         </nav>
-        <div>
+        <div className=" absolute bottom-[50px] ml-[60px]  " data-aos="fade-left" >
+          <h2 className="text-white text-[50px] font-semibold">Transforming industries with cutting-edge</h2>
+          <h2 className="text-white text-[50px] font-semibold">software solutions</h2>
+          <br />
+          <p className="text-white text-[21px]">Based in Sri Lanka. Delivering Innovative Solutions Worldwide</p>
+        </div>
+        <div className="">
           <div className="chat-container duration-500 animate-bounce " >
             <Image src={Bot} className="bot w-16 h-16 fixed bottom-10 right-10 z-50" alt="chat bot" />
             <p className="chat-text w-44  text-white h-9 flex justify-center items-center rounded-[25px] fixed bottom-28 right-24 z-50 bg-gray-800">
               <span className="typing max-w-32"   >Chat with Jemo</span>
             </p>
           </div>
-          {/* Chatbox */}
-          {/* <div className="bg-white rounded-[25px] shadow-md w-[25%] h-[70vh] fixed bottom-28 right-20 z-[999] flex flex-col">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold flex items-center justify-between px-4 py-3 rounded-t-[25px]">
-              <Image src={Bot} alt="chatbot" className="w-10 h-10" />
-              <span>Chat with Jemo</span>
-              <button className="text-white bg-transparent border-none text-lg">×</button>
-            </div>
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
-              {messages.map((message, index) => (
-                <div
-                  key={index}
-                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} space-x-2`}
-                >
-                  <Image src={Bot} className="w-9 h-9" alt="chatbot" />
-                  <div
-                    className={`${message.role === 'assistant' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'
-                      } px-4 py-2 rounded-b-[10px] rounded-tr-[10px] shadow text-xs`}
-                  >
-                    {message.content}
-                  </div>
-                </div>
-              ))}
-              <div ref={messagesEndRef} />
-            </div>
-
-            <div className="bg-gray-100 p-4 rounded-b-[25px] flex items-center space-x-2">
-              <input
-                type="text"
-                placeholder="Type your message..."
-                value={input}
-                onChange={handleInputChange}
-                className="flex-1 bg-white border-none outline-none border-gray-300 rounded-full px-4 py-2 text-sm shadow-sm focus:outline-none focus:ring-[2px] ring-[2px] focus:ring-blue-600"
-              />
-              <button
-                onClick={sendMessage}
-                className="bg-blue-500 text-white px-4 py-2 rounded-full shadow hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
-              >
-                Send
-              </button>
-            </div>
-          </div> */}
-          <div className=" relative bottom-[250px] ml-[70px]  " data-aos="fade-left" >
-            <h2 className="text-white text-[50px] font-semibold">Transforming industries with cutting-edge</h2>
-            <h2 className="text-white text-[50px] font-semibold">software solutions</h2>
-            <br />
-            <p className="text-white text-[21px]">Based in Sri Lanka. Delivering Innovative Solutions Worldwide</p>
-          </div>
         </div>
-        <div className="bg-[#EEF6FF] absolute left-0  right-0 max-h-fit top-[100vh]  text-black" >
-          <div className="w-full text-center mt-[2%]">
-            <h2 className="text-center font-semibold text-[30px]" data-aos="fade-top" >Discover the Power of <span className="text-[#2A92FF]">Jepsoft</span></h2>
-            <p className="mt-6 ml-[4%] mr-[4%] text-justify mb-5 text-[18px] " data-aos="fade-top" >Jepsoft is a forward-thinking software company committed to empowering businesses through innovative and tailored solutions. Our expertise spans custom software development,Web Development, NFC card creation, ID card production, and a wide
-              range of advanced digital tools. By streamlining workflows, enhancing data security, and elevating customer experiences, we help businesses thrive in an ever-evolving market. With a team of passionate developers and industry experts,
-              we deliver user-friendly, efficient solutions designed to boost productivity, reduce operational costs, and support informed decision-making. At Jepsoft, we are dedicated to turning your vision into reality with technology that works for you.
-            </p>
-          </div>
-          <div className="bg-[#100425] absolute left-0 right-0 ">
-            <div className="border-cyan-400" >
-              <h2 className="text-white font-semibold text-[25px] text-center pt-14">What We Build</h2>
-            </div>
-            <div className="flex justify-center pt-[4%] " >
-              <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
-                <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
-                  <div className="flex justify-center">
-                    <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
-                  </div>
-                  <div className="flex justify-center">
-                    <p className="text-white text-[15px] mb-4">Custom Software Development</p>
-                  </div>
-                  <div className="flex justify-center">
-                    <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
-                  </div>
-                  <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
-                </div>
-              </div>
-              <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
-                <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
-                  <div className="flex justify-center">
-                    <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
-                  </div>
-                  <div className="flex justify-center">
-                    <p className="text-white text-[15px] mb-4">Custom Software Development</p>
-                  </div>
-                  <div className="flex justify-center">
-                    <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
-                  </div>
-                  <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
-                </div>
-              </div>
-              <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
-                <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
-                  <div className="flex justify-center">
-                    <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
-                  </div>
-                  <div className="flex justify-center">
-                    <p className="text-white text-[15px] mb-4">Custom Software Development</p>
-                  </div>
-                  <div className="flex justify-center">
-                    <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
-                  </div>
-                  <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
-                </div>
-              </div>
-              <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
-                <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
-                  <div className="flex justify-center">
-                    <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
-                  </div>
-                  <div className="flex justify-center">
-                    <p className="text-white text-[15px] mb-4">Custom Software Development</p>
-                  </div>
-                  <div className="flex justify-center">
-                    <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
-                  </div>
-                  <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
-                </div>
-              </div>
-            </div>
-            <br />
-            <br />
-            <br />
-          </div>
+       
+      <div className="bg-[#EEF6FF]  text-black" >
+        <div className="w-full text-center ">
+          <h2 className="text-center font-semibold text-[30px]  pt-6" data-aos="fade-top" >Discover the Power of <span className="text-[#2A92FF]">Jepsoft</span></h2>
+          <p className="mt-6 ml-[4%] mr-[4%] text-justify mb-5 text-[18px] " data-aos="fade-top" >Jepsoft is a forward-thinking software company committed to empowering businesses through innovative and tailored solutions. Our expertise spans custom software development,Web Development, NFC card creation, ID card production, and a wide
+            range of advanced digital tools. By streamlining workflows, enhancing data security, and elevating customer experiences, we help businesses thrive in an ever-evolving market. With a team of passionate developers and industry experts,
+            we deliver user-friendly, efficient solutions designed to boost productivity, reduce operational costs, and support informed decision-making. At Jepsoft, we are dedicated to turning your vision into reality with technology that works for you.
+          </p>
         </div>
-        <div className=" min-h-[65vh] bg-[#EDF6FF]"></div>
+        <div className="bg-[#100425] ">
+          <div className="border-cyan-400" >
+            <h2 className="text-white font-semibold text-[25px] text-center pt-14">What We Build</h2>
+          </div>
+          <div className="flex justify-center pt-[4%] " >
+            <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
+              <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
+                <div className="flex justify-center">
+                  <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
+                </div>
+                <div className="flex justify-center">
+                  <p className="text-white text-[15px] mb-4">Custom Software Development</p>
+                </div>
+                <div className="flex justify-center">
+                  <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
+                </div>
+                <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
+              </div>
+            </div>
+            <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
+              <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
+                <div className="flex justify-center">
+                  <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
+                </div>
+                <div className="flex justify-center">
+                  <p className="text-white text-[15px] mb-4">Custom Software Development</p>
+                </div>
+                <div className="flex justify-center">
+                  <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
+                </div>
+                <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
+              </div>
+            </div>
+            <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
+              <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
+                <div className="flex justify-center">
+                  <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
+                </div>
+                <div className="flex justify-center">
+                  <p className="text-white text-[15px] mb-4">Custom Software Development</p>
+                </div>
+                <div className="flex justify-center">
+                  <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
+                </div>
+                <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
+              </div>
+            </div>
+            <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
+              <div className="rounded-[40px] bg-[#100425] pl-4 pr-4 pt-10 pb-5 ">
+                <div className="flex justify-center">
+                  <Image src={CSD} className="w-20 h-20 mb-4" alt="Custom Software Development" />
+                </div>
+                <div className="flex justify-center">
+                  <p className="text-white text-[15px] mb-4">Custom Software Development</p>
+                </div>
+                <div className="flex justify-center">
+                  <p className=" max-w-[230px] text-center text-[12px] text-white " >We specialize in custom software development, creating tailored solutions that optimize efficiency, enhance user experience, and drive business growth</p>
+                </div>
+                <h4 className="text-white text-center bg-gradient-to-r from-[#3890FF] to-[#D95BB6] p-1.5 mt-3 text-sm rounded-[40px]">Explore More</h4>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <br />
+        </div>
         <div className="bg-[#EDF6FF] pb-2 min-h-[100vh] text-black">
-          <h2 className="text-[30px] font-semibold text-center pt-4 pb-4" data-aos="fade-top" >How <span className="text-[#2A92FF]">Jepsoft</span> Perform With Your Project</h2>
+          <h2 className="text-[30px] font-semibold text-center pt-9 pb-4" data-aos="fade-top" >How <span className="text-[#2A92FF]">Jepsoft</span> Perform With Your Project</h2>
           <div className="flex justify-center pt-10 " >
             <div className="relative duration-500 hover:scale-105 hover:duration-500 hover:shadow-lg  bg-white rounded-[40px] bg-gradient-to-r shadow-md ml-8 mr-8 " data-aos="zoom-in-up" >
               <div className="rounded-[40px]  pl-4 pr-4 pt-5 pb-5 ">
