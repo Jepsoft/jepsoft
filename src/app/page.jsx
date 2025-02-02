@@ -270,17 +270,17 @@ export default function Home() {
             <p className="text-white text-[21px]">Based in Sri Lanka. Delivering Innovative Solutions Worldwide</p>
           </div>
         </div>
-        <div className="bg-[#EEF6FF] absolute left-0  right-0 bottom-0 top-[100vh] h-[100vh] text-black" >
+        <div className="bg-[#EEF6FF] absolute left-0  right-0 bottom-0 top-[100vh] min-h-[100vh] text-black" >
           <div className="w-full text-center mt-[2%]">
             <h2 className="text-center font-semibold text-[30px]" data-aos="fade-top" >Discover the Power of <span className="text-[#2A92FF]">Jepsoft</span></h2>
-            <p className="mt-10 ml-[4%] mr-[4%] text-justify mb-5 text-[18px] " data-aos="fade-top" >Jepsoft is a forward-thinking software company committed to empowering businesses through innovative and tailored solutions. Our expertise spans custom software development,Web Development, NFC card creation, ID card production, and a wide
+            <p className="mt-6 ml-[4%] mr-[4%] text-justify mb-5 text-[18px] " data-aos="fade-top" >Jepsoft is a forward-thinking software company committed to empowering businesses through innovative and tailored solutions. Our expertise spans custom software development,Web Development, NFC card creation, ID card production, and a wide
               range of advanced digital tools. By streamlining workflows, enhancing data security, and elevating customer experiences, we help businesses thrive in an ever-evolving market. With a team of passionate developers and industry experts,
               we deliver user-friendly, efficient solutions designed to boost productivity, reduce operational costs, and support informed decision-making. At Jepsoft, we are dedicated to turning your vision into reality with technology that works for you.
             </p>
           </div>
-          <div className="bg-[#100425] absolute left-0 right-0 bottom-0 h-[68%] ">
+          <div className="bg-[#100425] absolute left-0 right-0 ">
             <div className="border-cyan-400" >
-              <h2 className="text-white text-[25px] text-center pt-14">What We Build</h2>
+              <h2 className="text-white font-semibold text-[25px] text-center pt-14">What We Build</h2>
             </div>
             <div className="flex justify-center pt-[4%] " >
               <div className="relative p-[2px] rounded-[40px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] ml-5 mr-5" data-aos="zoom-in-up">
@@ -340,9 +340,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <br />
+            <br />
+            <br />
           </div>
         </div>
-        <div className=" min-h-[85vh] bg-[#EDF6FF]"></div>
+        <div className=" min-h-[100vh] bg-[#EDF6FF]"></div>
         <div className="bg-[#EDF6FF] pb-2 min-h-[100vh] text-black">
           <h2 className="text-[30px] font-semibold text-center pt-4 pb-4" data-aos="fade-top" >How <span className="text-[#2A92FF]">Jepsoft</span> Perform With Your Project</h2>
           <div className="flex justify-center pt-10 " >
@@ -481,215 +484,216 @@ export default function Home() {
               />
             </div>
           </div>
-          </div>
-          <div className=" min-h-[100vh] bg-white text-black ">
-            <h2 className="text-[30px] font-semibold text-center pt-14" data-aos="fade-up" >What Our <span className="text-[#2A92FF]">Clients </span>Say</h2>
-            <div className="flex justify-between ml-[5%] mr-[5%] mt-20 ">
-              <div className=" flex justify-between " data-aos="zoom-in-up" >
-                <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]">
-                  <div className="ml-[20px] mr-[20px]">
-                    <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
-                    <p className="max-w-[300px] text-center text-sm">
-                      I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                      and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                      and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
-                    </p>
-                  </div>
-                  <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
-                    ★★★★★
-                  </div>
-                  <div className="flex justify-center p-2">
-                    <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
-                    <div>
-                      <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
-                      <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px] ">Managing Director At Global Talent Solutions</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className=" flex justify-between " data-aos="zoom-in-up" >
-                <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]" >
-                  <div className="ml-[20px] mr-[20px]">
-                    <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
-                    <p className="max-w-[300px] text-center text-sm">
-                      I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                      and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                      and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
-                    </p>
-                  </div>
-                  <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
-                    ★★★★★
-                  </div>
-                  <div className="flex justify-center p-2">
-                    <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
-                    <div>
-                      <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
-                      <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px] ">Managing Director At Global Talent Solutions</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className=" flex justify-between " data-aos="zoom-in-up" >
-                <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]">
-                  <div className="ml-[20px] mr-[20px]">
-                    <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
-                    <p className="max-w-[300px] text-center text-sm">
-                      I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                      and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                      and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
-                    </p>
-                  </div>
-                  <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
-                    ★★★★★
-                  </div>
-                  <div className="flex justify-center p-2">
-                    <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
-                    <div>
-                      <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
-                      <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px]">Managing Director At Global Talent Solutions</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className=" flex justify-between " data-aos="zoom-in-up" >
-                <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]">
-                  <div className="ml-[20px] mr-[20px]">
-                    <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
-                    <p className="max-w-[300px] text-center text-sm">
-                      I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                      and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
-                      and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
-                    </p>
-                  </div>
-                  <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
-                    ★★★★★
-                  </div>
-                  <div className="flex justify-center p-2">
-                    <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
-                    <div>
-                      <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
-                      <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px] ">Managing Director At Global Talent Solutions</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className=" flex justify-center">
-              <div className="mt-24 ">
-                <h2 className="font-semibold text-[50px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] bg-clip-text text-transparent" data-aos="fade-top" >
-                  Collaborate with Us to Build Smarter Solutions
-                </h2>
-                <br />
-                <h3 className="text-[18px] font-semibold text-white px-4 py-2 bg-gradient-to-r flex justify-self-center from-[#3890FF] to-[#D95BB6] inline-block rounded-[25px]" data-aos="fade-bottom" >
-                  Let’s Start Your Project
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div className="min-h-[100vh] bg-[#D9D9D9] text-black ">
-            <h2 className="text-[30px] font-semibold text-center pt-14" data-aos="fade-top">Smart <span className="text-[#2A92FF]">Solutions , </span>Worldwide <span className="text-[#2A92FF]">Impact </span></h2>
-            <div className="mt-20 flex justify-between ml-[5%] mr-[5%] mb-0">
-              <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up"  >
-                <h2 className="text-[#2A92FF] font-semibold text-[60px]">1+</h2>
-                <p className="font-semibold text-center ">Years Of Experience</p>
-              </div>
-              <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up" >
-                <h2 className="text-[#2A92FF] font-semibold text-[60px]">5+</h2>
-                <p className="font-semibold text-center ">Clients Connected</p>
-              </div>
-              <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up"  >
-                <h2 className="text-[#2A92FF] font-semibold text-[60px]">100%</h2>
-                <p className="font-semibold text-center ">Client Satisfaction Rate</p>
-              </div>
-              <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up"  >
-                <h2 className="text-[#2A92FF] font-semibold text-[60px]">3+</h2>
-                <p className="font-semibold text-center ">Countries in Operation</p>
-              </div>
-            </div>
-            <div className="flex justify-center" data-aos="fade-up"  >
-              <Image src={Map} alt="Jepsoft Opartion Map" className="mt-14 w-[85%] rounded-[25px] shadow-xl duration-500 hover:duration-500 hover:scale-105 " data-aos="zoom-in-up" />
-            </div>
-          </div>
-      <footer class="bg-white">
-        <div class="p-14">
-          <div class="md:flex md:justify-between">
-            <div class="mb-6 md:mb-0">
-              <a href="https://flowbite.com/" class="flex items-center">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-black  ">Jepsoft</span>
-              </a>
-            </div>
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-              <div className="" >
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
-                <ul class="text-gray-500 font-medium">
-                  <li class="mb-4">
-                    <a href="https://flowbite.com/" class="hover:underline">Flowbite</a>
-                  </li>
-                  <li>
-                    <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
-                <ul class="text-gray-500 font-medium">
-                  <li class="mb-4">
-                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
-                  </li>
-                  <li>
-                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Legal</h2>
-                <ul class="text-gray-500 font-medium">
-                  <li class="mb-4">
-                    <a href="#" class="hover:underline">Privacy Policy</a>
-                  </li>
-                  <li>
-                    <a href="#" class="hover:underline">Terms &amp; Conditions</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
-          <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Jepsoft™</a>. All Rights Reserved.
-            </span>
-            <div class="flex mt-4 sm:justify-center sm:mt-0">
-              <a href="#" class="text-gray-500 hover:text-gray-900">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
-                  <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
-                </svg>
-                <span class="sr-only">Facebook page</span>
-              </a>
-              <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
-                  <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
-                </svg>
-                <span class="sr-only">Discord community</span>
-              </a>
-              <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
-                  <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd" />
-                </svg>
-                <span class="sr-only">Twitter page</span>
-              </a>
-              <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
-                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.016A10.038 10.038 0 0 0 10 3.01 10.06 10.06 0 0 0 7.024 3.585c-.084.144-.17.291-.254.44-.175.297-.348.605-.526.91-.073.126-.148.253-.222.378-.042.071-.084.141-.127.212-.014.019-.029.038-.043.057-.005.01-.01.019-.015.029-.082.151-.157.31-.231.469.133.367.278.727.432 1.085-.308-.033-.613-.079-.919-.122-.238-.109-.477-.224-.715-.337a8.36 8.36 0 0 0 1.77 6.268c-.01.01-.02.021-.03.031-.215-.104-.423-.218-.633-.332a7.903 7.903 0 0 0 2.639-2.091c-.008-.036-.015-.073-.022-.11-.354-.813-.61-1.662-.74-2.521a7.712 7.712 0 0 1-4.657 1.701c-.12-.086-.24-.174-.358-.262-.88-.622-.91-.99-.003-1.618-.011-.024.01-.057.017-.086a7.646 7.646 0 0 1-1.308-.45c-.065.254-.14.507-.212.759-.65.325-1.296.648-1.948.97-.22-.188-.443-.375-.664-.561-.545-.478-.98-.995-1.3-1.609 3.055-.516 5.312-2.67 5.312-4.759a7.727 7.727 0 0 0-1.422-3.573c-.318.243-.663.476-.986.704-.182-.393-.34-.772-.498-1.16.348-.289.662-.623.985-.958-.348.01-.679-.04-1-.138a6.33 6.33 0 0 1-.353-.262C9.999 6.67 10.553 4.616 16.613 4.614Z" clip-rule="evenodd" />
-                </svg>
-                <span class="sr-only">Github page</span>
-              </a>
-            </div>
-          </div>
         </div>
-      </footer>
+        <div className=" min-h-svh bg-white text-black ">
+          <h2 className="text-[30px] font-semibold text-center pt-14" data-aos="fade-up" >What Our <span className="text-[#2A92FF]">Clients </span>Say</h2>
+          <div className="flex justify-between mt-12 ">
+            <div className=" flex justify-between ml-6 mr-6" data-aos="zoom-in-up" >
+              <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]">
+                <div className="ml-[20px] mr-[20px]">
+                  <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
+                  <p className="max-w-[300px] text-center text-sm">
+                    I had an amazing experience with this service. The team was professional, the quality was top-notch,
+                    and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
+                    and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
+                  </p>
+                </div>
+                <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
+                  ★★★★★
+                </div>
+                <div className="flex justify-center p-2">
+                  <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
+                  <div>
+                    <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
+                    <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px] ">Managing Director At Global Talent Solutions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className=" flex justify-between ml-6 mr-6" data-aos="zoom-in-up" >
+              <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]" >
+                <div className="ml-[20px] mr-[20px]">
+                  <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
+                  <p className="max-w-[300px] text-center text-sm">
+                    I had an amazing experience with this service. The team was professional, the quality was top-notch,
+                    and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
+                    and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
+                  </p>
+                </div>
+                <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
+                  ★★★★★
+                </div>
+                <div className="flex justify-center p-2">
+                  <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
+                  <div>
+                    <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
+                    <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px] ">Managing Director At Global Talent Solutions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className=" flex justify-between ml-6 mr-6" data-aos="zoom-in-up" >
+              <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]">
+                <div className="ml-[20px] mr-[20px]">
+                  <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
+                  <p className="max-w-[300px] text-center text-sm">
+                    I had an amazing experience with this service. The team was professional, the quality was top-notch,
+                    and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
+                    and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
+                  </p>
+                </div>
+                <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
+                  ★★★★★
+                </div>
+                <div className="flex justify-center p-2">
+                  <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
+                  <div>
+                    <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
+                    <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px]">Managing Director At Global Talent Solutions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className=" flex justify-between ml-6 mr-6" data-aos="zoom-in-up" >
+              <div className="bg-[#f9f9f9] shadow-md scale-100 hover:scale-105 hover:duration-500 duration-500 rounded-[25px]">
+                <div className="ml-[20px] mr-[20px]">
+                  <p className=" mb-3 text-center pt-8 "><strong>Excellent Service!</strong></p>
+                  <p className="max-w-[300px] text-center text-sm">
+                    I had an amazing experience with this service. The team was professional, the quality was top-notch,
+                    and the response time was super fast. Highly recommend to everyone!  I had an amazing experience with this service. The team was professional, the quality was top-notch,
+                    and the response time was super fast. Highly recommend to everyone! and the response time was super fast. Highly recommend to everyone!
+                  </p>
+                </div>
+                <div className=" text-[#FFD700] flex justify-self-center  text-[30px]">
+                  ★★★★★
+                </div>
+                <div className="flex justify-center p-2">
+                  <Image src={Aravindha} alt="Mr Aravindha" className="w-12 h-12" />
+                  <div>
+                    <p className=" font-bold ml-4 ">Mr. Aravindha Koralage</p>
+                    <p className="w-[200px] ml-4 mt-0 mb-4 mr-0 text-[10px] ">Managing Director At Global Talent Solutions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className=" flex justify-center">
+            <div className="mt-6">
+              <h2 className="font-semibold text-[50px] bg-gradient-to-r from-[#3890FF] to-[#D95BB6] bg-clip-text text-transparent" data-aos="fade-top" >
+                Collaborate with Us to Build Smarter Solutions
+              </h2>
+              <br />
+              <h3 className="text-[18px] font-semibold text-white px-4 py-2 bg-gradient-to-r flex justify-self-center from-[#3890FF] to-[#D95BB6] inline-block rounded-[25px]" data-aos="fade-bottom" >
+                Let’s Start Your Project
+              </h3>
+            </div>
+          </div>
+          <br />
+        </div>
+        <div className="min-h-svh bg-[#D9D9D9] text-black ">
+          <h2 className="text-[30px] font-semibold text-center pt-14" data-aos="fade-top">Smart <span className="text-[#2A92FF]">Solutions , </span>Worldwide <span className="text-[#2A92FF]">Impact </span></h2>
+          <div className="mt-20 flex justify-between ml-[5%] mr-[5%] mb-0">
+            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up"  >
+              <h2 className="text-[#2A92FF] font-semibold text-[60px]">1+</h2>
+              <p className="font-semibold text-center ">Years Of Experience</p>
+            </div>
+            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up" >
+              <h2 className="text-[#2A92FF] font-semibold text-[60px]">5+</h2>
+              <p className="font-semibold text-center ">Clients Connected</p>
+            </div>
+            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up"  >
+              <h2 className="text-[#2A92FF] font-semibold text-[60px]">100%</h2>
+              <p className="font-semibold text-center ">Client Satisfaction Rate</p>
+            </div>
+            <div className="text-center w-[150px] text-[#6B6B6B]" data-aos="fade-up"  >
+              <h2 className="text-[#2A92FF] font-semibold text-[60px]">3+</h2>
+              <p className="font-semibold text-center ">Countries in Operation</p>
+            </div>
+          </div>
+          <div className="flex justify-center mb-10" data-aos="fade-up"  >
+            <Image src={Map} alt="Jepsoft Opartion Map" className="mt-14 w-[85%] rounded-[25px] shadow-xl duration-500 hover:duration-500 hover:scale-105 " data-aos="zoom-in-up" />
+          </div>
+          <br />
+        </div>
+        <footer class="bg-white">
+          <div class="p-14">
+            <div class="md:flex md:justify-between">
+              <div class="mb-6 md:mb-0">
+                <a href="https://flowbite.com/" class="flex items-center">
+                  <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
+                  <span class="self-center text-2xl font-semibold whitespace-nowrap text-black  ">Jepsoft</span>
+                </a>
+              </div>
+              <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                <div className="" >
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
+                  <ul class="text-gray-500 font-medium">
+                    <li class="mb-4">
+                      <a href="https://flowbite.com/" class="hover:underline">Flowbite</a>
+                    </li>
+                    <li>
+                      <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
+                  <ul class="text-gray-500 font-medium">
+                    <li class="mb-4">
+                      <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
+                    </li>
+                    <li>
+                      <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Legal</h2>
+                  <ul class="text-gray-500 font-medium">
+                    <li class="mb-4">
+                      <a href="#" class="hover:underline">Privacy Policy</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+            <div class="sm:flex sm:items-center sm:justify-between">
+              <span class="text-sm text-gray-500 sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Jepsoft™</a>. All Rights Reserved.
+              </span>
+              <div class="flex mt-4 sm:justify-center sm:mt-0">
+                <a href="#" class="text-gray-500 hover:text-gray-900">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                    <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="sr-only">Facebook page</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
+                    <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
+                  </svg>
+                  <span class="sr-only">Discord community</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
+                    <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="sr-only">Twitter page</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.016A10.038 10.038 0 0 0 10 3.01 10.06 10.06 0 0 0 7.024 3.585c-.084.144-.17.291-.254.44-.175.297-.348.605-.526.91-.073.126-.148.253-.222.378-.042.071-.084.141-.127.212-.014.019-.029.038-.043.057-.005.01-.01.019-.015.029-.082.151-.157.31-.231.469.133.367.278.727.432 1.085-.308-.033-.613-.079-.919-.122-.238-.109-.477-.224-.715-.337a8.36 8.36 0 0 0 1.77 6.268c-.01.01-.02.021-.03.031-.215-.104-.423-.218-.633-.332a7.903 7.903 0 0 0 2.639-2.091c-.008-.036-.015-.073-.022-.11-.354-.813-.61-1.662-.74-2.521a7.712 7.712 0 0 1-4.657 1.701c-.12-.086-.24-.174-.358-.262-.88-.622-.91-.99-.003-1.618-.011-.024.01-.057.017-.086a7.646 7.646 0 0 1-1.308-.45c-.065.254-.14.507-.212.759-.65.325-1.296.648-1.948.97-.22-.188-.443-.375-.664-.561-.545-.478-.98-.995-1.3-1.609 3.055-.516 5.312-2.67 5.312-4.759a7.727 7.727 0 0 0-1.422-3.573c-.318.243-.663.476-.986.704-.182-.393-.34-.772-.498-1.16.348-.289.662-.623.985-.958-.348.01-.679-.04-1-.138a6.33 6.33 0 0 1-.353-.262C9.999 6.67 10.553 4.616 16.613 4.614Z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="sr-only">Github page</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
-
     </div>
   )
 }
