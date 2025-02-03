@@ -30,7 +30,7 @@ import Map from "./images/map.webp";
 import Aravindha from "./icons/aravindha.webp";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import Head from 'next/head';
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -229,202 +229,7 @@ export default function Home() {
   }, []);
   return (
     <div className=" text-white " >
-      <Head>
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Jepsoft",
-              "url": "https://www.jepsoft.com",
-              "logo": "https://www.jepsoft.com/logo.webp",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+94 774835253",
-                "contactType": "Customer Service",
-                "areaServed": "LK",
-                "availableLanguage": "English"
-              },
-              "sameAs": [
-                "https://www.facebook.com/share/15eBfE183t/?mibextid=wwXIfr",
-                "https://www.linkedin.com/company/jepsoft",
-                "https://www.instagram.com/jepsoft?igsh=MXc2Y2RoMGlocnNrZw=="
-              ]
-            }
-          `}
-        </script>
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Jepsoft",
-              "url": "https://www.jepsoft.com",
-              "logo": "https://www.jepsoft.com/logo.webp",
-              "description": "Jepsoft provides innovative web and software solutions for businesses.",
-              "address": {
-                "@type": "Matara , Palatuwa , Jepsoft",
-                "streetAddress": "Matara, Palatuwa",
-                "addressLocality": "Matara",
-                "addressRegion": "Southern Province",
-                "postalCode": "81050",
-                "addressCountry": "LK",
-                "availableLanguage": "English, Sinhala"
-              },
-              "telephone": "+94 774835253",
-            "openingHours": "Mo-Su 09:00-18:00"
-              
-            }
-          `}
-        </script>
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "ItemList",
-              "name": "Jepsoft Services",
-              "itemListElement": [
-                {
-                  "@type": "Service",
-                  "name": "Custom Website Development",
-                  "image": "https://www.jepsoft.com/web-development.jpg",
-                  "description": "High-quality, responsive websites tailored to your business needs.",
-                  "provider": {
-                    "@type": "Organization",
-                    "name": "Jepsoft"
-                  },
-                  "offers": [
-                    {
-                      "@type": "Offer",
-                      "price": "Contact for Quote",
-                      "priceCurrency": "LKR",
-                      "url": "https://www.jepsoft.com/services/web-development"
-                    },
-                    {
-                      "@type": "Offer",
-                      "price": "Contact for Quote",
-                      "priceCurrency": "USD",
-                      "url": "https://www.jepsoft.com/services/web-development"
-                    }
-                  ]
-                },
-                {
-                  "@type": "Service",
-                  "name": "Software Development",
-                  "image": "https://www.jepsoft.com/software-development.jpg",
-                  "description": "Custom software solutions for businesses, ensuring high performance and scalability.",
-                  "provider": {
-                    "@type": "Organization",
-                    "name": "Jepsoft"
-                  },
-                  "offers": [
-                    {
-                      "@type": "Offer",
-                      "price": "Contact for Quote",
-                      "priceCurrency": "LKR",
-                      "url": "https://www.jepsoft.com/services/software-development"
-                    },
-                    {
-                      "@type": "Offer",
-                      "price": "Contact for Quote",
-                      "priceCurrency": "USD",
-                      "url": "https://www.jepsoft.com/services/software-development"
-                    }
-                  ]
-                },
-                {
-                  "@type": "Service",
-                  "name": "NFC Card Solutions",
-                  "image": "https://www.jepsoft.com/nfc-cards.jpg",
-                  "description": "Secure and reliable NFC card solutions for business access control, payments, and authentication.",
-                  "provider": {
-                    "@type": "Organization",
-                    "name": "Jepsoft"
-                  },
-                  "offers": [
-                    {
-                      "@type": "Offer",
-                      "price": "Contact for Quote",
-                      "priceCurrency": "LKR",
-                      "url": "https://www.jepsoft.com/services/nfc-cards"
-                    },
-                    {
-                      "@type": "Offer",
-                      "price": "Contact for Quote",
-                      "priceCurrency": "USD",
-                      "url": "https://www.jepsoft.com/services/nfc-cards"
-                    }
-                  ]
-                },
-                {
-                  "@type": "Service",
-                  "name": "Custom Chatbot Development",
-                  "image": "https://www.jepsoft.com/chatbot.jpg",
-                  "description": "AI-powered chatbot solutions to automate customer interactions and support services.",
-                  "provider": {
-                    "@type": "Organization",
-                    "name": "Jepsoft"
-                  },
-                  "offers": [
-                    {
-                      "@type": "Offer",
-                      "price": "Contact for Quote",
-                      "priceCurrency": "LKR",
-                      "url": "https://www.jepsoft.com/services/chatbot-development"
-                    },
-                    {
-                      "@type": "Offer",
-                      "price": "Contact for Quote",
-                      "priceCurrency": "USD",
-                      "url": "https://www.jepsoft.com/services/chatbot-development"
-                    }
-                  ]
-                },
-                {
-                  "@type": "Service",
-                  "name": "IT Consultation Services",
-                  "image": "https://www.jepsoft.com/it-consulting.jpg",
-                  "description": "Expert IT consulting to optimize and scale your business technology solutions.",
-                  "provider": {
-                    "@type": "Organization",
-                    "name": "Jepsoft"
-                  },
-                  "offers": [
-                    {
-                      "@type": "Offer",
-                      "price": "Contact for Quote",
-                      "priceCurrency": "LKR",
-                      "url": "https://www.jepsoft.com/services/it-consulting"
-                    },
-                    {
-                      "@type": "Offer",
-                      "price": "Contact for Quote",
-                      "priceCurrency": "USD",
-                      "url": "https://www.jepsoft.com/services/it-consulting"
-                    }
-                  ]
-                }
-              ]
-            }
-          `}
-        </script>
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Jepsoft",
-              "url": "https://www.jepsoft.com",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://www.jepsoft.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            }
-          `}
-        </script>
-        <link rel="canonical" href="https://www.jepsoft.com/" />
-      </Head>
+      
       <div className="min-h-svh">
         <Image src={BG} className=" absalute left-0 right-0 top-0 min-h-svh  object-cover max-h-svh overflow-y-hidden " alt="Wallpaper" />
         <nav data-aos="fade-up"
@@ -614,7 +419,6 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
-
           </div>
           <br />
           <br />
@@ -635,7 +439,6 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-
               <div className="relative duration-500 hover:scale-105 hover:shadow-lg bg-white rounded-[40px] shadow-md p-6" data-aos="zoom-in-up">
                 <div className="rounded-[40px] text-center">
                   <div className="flex justify-center">
@@ -711,7 +514,6 @@ export default function Home() {
               >
                 Collaborate with Us to Build Smarter Solutions
               </h2>
-
               <br />
               <h3 className="text-[18px] font-semibold text-white px-4 py-2 bg-gradient-to-r flex justify-self-center from-[#3890FF] to-[#D95BB6] inline-block rounded-[25px]" data-aos="fade-bottom" >
                 Let’s Start Your Project
@@ -740,7 +542,6 @@ export default function Home() {
               <p className="font-semibold text-center">Countries in Operation</p>
             </div>
           </div>
-
           <div className="flex justify-center mb-10" data-aos="fade-up"  >
             <Image src={Map} alt="Jepsoft Opartion Map" className="mt-14 w-[85%] rounded-[25px] shadow-xl duration-500 hover:duration-500 hover:scale-105 " data-aos="zoom-in-up" />
           </div>
