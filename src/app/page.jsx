@@ -527,6 +527,7 @@ export default function Home() {
           </div>
         </nav>
         <div className="absolute bottom-[110px] ml-[20px] md:ml-[40px] lg:ml-[60px] " data-aos="fade-left">
+          <h1 className=" invisible" >Transforming industries with cutting-edge software solutions</h1>
           <h2 className="text-white text-[30px] md:text-[40px] lg:text-[50px] font-semibold">
             Transforming industries with cutting-edge
           </h2>
